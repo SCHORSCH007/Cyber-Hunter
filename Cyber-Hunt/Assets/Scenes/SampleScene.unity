@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.16596
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -219,8 +219,9 @@ GameObject:
   - component: {fileID: 1672019236}
   - component: {fileID: 1672019235}
   - component: {fileID: 1672019234}
-  m_Layer: 0
-  m_Name: Square
+  - component: {fileID: 1672019238}
+  m_Layer: 3
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,3 +341,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672019238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672019233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3dbbb16dbb862429abd40750e4d364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rb: {fileID: 1672019234}
+  mapGreenPrefab: {fileID: 71390822756100795, guid: 1de04b72920b591408ae7ee2d82d50fa, type: 3}
+  mapRedPrefab: {fileID: 5021602516919669205, guid: a1551f96597532c4daee00b7aa322299, type: 3}
