@@ -8,6 +8,7 @@ public class bullet : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody2D rb;
     public float force;
+    public int damage = 1;
     
 
     // Start is called before the first frame update
@@ -31,5 +32,18 @@ public class bullet : MonoBehaviour
     void Update()
     {
    
+    }
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+
+        EnemyHpScript enemy = hitInfo.GetComponent<EnemyHpScript>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+
+        //Instantiate(impactEffect, transform.position, transform.rotation);
+
+        Destroy(gameObject);
     }
 }
