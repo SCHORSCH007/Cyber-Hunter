@@ -47,3 +47,6 @@ TagManager:
   - name: Front
     uniqueID: 3868333563
     locked: 0
+  - name: Gun
+    uniqueID: 2394256603
+    locked: 0
