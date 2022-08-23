@@ -1541,6 +1541,7 @@ GameObject:
   - component: {fileID: 1672019234}
   - component: {fileID: 1672019238}
   - component: {fileID: 1672019239}
+  - component: {fileID: 1672019240}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -1695,6 +1696,19 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 904027079}
+--- !u!114 &1672019240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672019233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d75e8ac581b5c44b476bb6cc2be8a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfDamagePopUp: {fileID: 5622735642354216949, guid: 93da4eb08f8546749bab95b4fab8c987, type: 3}
 --- !u!1 &1688871396
 GameObject:
   m_ObjectHideFlags: 0
