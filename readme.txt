@@ -6,7 +6,7 @@ Plan:
 
 
 was soll es können
-	undendliche map generation mit 3-4 texturen
+	
 	player mit verschiedenen Fähigkeiten levelbar
 	progressive Gegnerverstärkung erste wave 3-4 --> mehr
 	pro kill xp
@@ -31,15 +31,15 @@ UI
 
 
 User Story
-	bewegen des players
+	bewegen des players (fertig)
 	-> texturen für player
 	-> logic
-	world generation
+	world generation (erstmal ausgesetzt)
 	-> texturen für Map
 	-> logic
 	Gegner
 	-> tetxturen
-	-> gegner AI (nichts komliziertes, nicht direkte verfolgung)
+	-> gegner AI (nichts komliziertes, nicht direkte verfolgung) (fertig)
 	Fähigkeiten
 	-> animations + partikel
 	-> logic
