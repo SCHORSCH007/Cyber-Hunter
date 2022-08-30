@@ -6,6 +6,7 @@ public class EnemyHpScript : MonoBehaviour
 {
 
     [SerializeField] int maxHealth = 3;
+    [SerializeField] GameObject drop;
     private int health;
 
     private void Start()
@@ -17,9 +18,10 @@ public class EnemyHpScript : MonoBehaviour
         health -= Damage;
         if(health <= 0)
         {
-          //  GetComponent<ParticleSystem>().Play();
-         //   ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
-           // em.enabled = true;
+            //  GetComponent<ParticleSystem>().Play();
+            //   ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+            // em.enabled = true;
+            Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         

@@ -41,10 +41,11 @@ public class bullet : MonoBehaviour
         {
             enemy.TakeDamage(damage);
             DamagePopUpScript.Create(enemy.transform.position, damage, false);
+            Destroy(gameObject);
         }
 
         //Instantiate(impactEffect, transform.position, transform.rotation);
 
-        Destroy(gameObject);
+       
     }
 }
