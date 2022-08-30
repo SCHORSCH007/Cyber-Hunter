@@ -22,5 +22,8 @@ public class EnemyHpScript : MonoBehaviour
            // em.enabled = true;
             Destroy(gameObject);
         }
+        
+        
     }
+   
 }

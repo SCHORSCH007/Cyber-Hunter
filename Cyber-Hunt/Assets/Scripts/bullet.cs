@@ -40,6 +40,7 @@ public class bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+            DamagePopUpScript.Create(enemy.transform.position, damage, false);
         }
 
         //Instantiate(impactEffect, transform.position, transform.rotation);

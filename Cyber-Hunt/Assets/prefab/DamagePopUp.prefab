@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5622735642354216948}
   - component: {fileID: 5622735642354216955}
   - component: {fileID: 5210897405789591304}
+  - component: {fileID: 3926639850666428717}
   m_Layer: 5
   m_Name: DamagePopUp
   m_TagString: Untagged
@@ -36,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.602, y: 0.758}
-  m_SizeDelta: {x: 0.246, y: 0.1466}
+  m_AnchoredPosition: {x: -3.6165, y: 0.7464}
+  m_SizeDelta: {x: 0.2171, y: 0.1235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5622735642354216948
 MeshRenderer:
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 1.05
   m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.053010702, w: 0.02990371}
+  m_margin: {x: 0, y: 0, z: -0.001304388, w: 0.001388371}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -186,3 +187,16 @@ SortingGroup:
   m_SortingLayerID: -1900710693
   m_SortingLayer: 3
   m_SortingOrder: 0
+--- !u!114 &3926639850666428717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622735642354216954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e2997781d8beb4cb06dda59d91bc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CritColor: {r: 0.8584906, g: 0.10123708, b: 0.1358104, a: 0}

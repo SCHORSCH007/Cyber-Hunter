@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Testing : MonoBehaviour
-{
-    // Start is called before the first frame update
-    [SerializeField] private Transform pfDamagePopUp;
-    void Start()
+{   
+   
+    private void Start()
     {
-        Instantiate(pfDamagePopUp, Vector3.zero, Quaternion.identity);
+        DamagePopUpScript.Create(Vector3.zero, 100,true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 }
