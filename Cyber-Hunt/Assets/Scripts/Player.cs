@@ -43,11 +43,6 @@ public class Player : MonoBehaviour
 		{
 			XP.moveToPlayer = true;     
 		}
-		BeeScript bs = collision.GetComponent <BeeScript>();
-		if ( bs != null) 
-		{
-			bs.inRange = true;
-		}
 	}
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -55,14 +50,6 @@ public class Player : MonoBehaviour
 		if (XP != null)
 		{
 			XP.moveToPlayer = false;
-
-
-		}
-
-		BeeScript bs = collision.GetComponent<BeeScript>();
-		if (bs != null)
-		{
-			bs.inRange = false;
 		}
 	}
 
