@@ -41,9 +41,7 @@ public class Player : MonoBehaviour
 		XPcollect XP = collision.GetComponent<XPcollect>();
 		if (XP != null)
 		{
-			XP.moveToPlayer = true;
-			
-            
+			XP.moveToPlayer = true;     
 		}
 	}
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,8 +50,6 @@ public class Player : MonoBehaviour
 		if (XP != null)
 		{
 			XP.moveToPlayer = false;
-
-
 		}
 	}
 
