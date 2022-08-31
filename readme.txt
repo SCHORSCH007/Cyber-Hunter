@@ -40,15 +40,44 @@ User Story
 	Gegner
 	-> tetxturen (WIP)
 	-> gegner AI (nichts komliziertes, nicht direkte verfolgung) (fertig)
+	-> drop xp(fertig)
+	-> drop chests
 	Fähigkeiten
 	-> animations + partikel
+	
 	-> logic
+	- basic shot (fertig)
+	- cyber blade {rotiert um Spieler}
+	- shield {schützt vor x schaden}
+	- malware {art gift das gegnern fortlaufenden schaden zufügt}
+	- dash
+	- nanoswarm {slow wave}
+	- failsafe {revive}
+	- Overload {elektro area damage um spieler}
+	
+	-> power Ups
+	- Overdrive {paar sekunden x mal so schnell schießen}
+	
+	-> player stats
+	- damage
+	- speed
+	- attackspeed {global oder per skill}
+	- HP 
+	- 
+	
+	
+	
 	Ui
 	...
 	leben und sterben des players (Leben Ja sterben nein)
 	-> logic
 	-> XP System (fertig)
 	-> animatiton sterben
+	
+	
+	Zentrale klasse zum verwalten der Stats und freigeschalteten Fähigkeiten
+	
+	
 
 	
 		
