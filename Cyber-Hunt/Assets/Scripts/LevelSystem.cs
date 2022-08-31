@@ -52,7 +52,6 @@ public class LevelSystem : MonoBehaviour
         {
             GainExperienceFlatRate(20);
         }
-        
     }
     public void UpdateXpUI()
     {

@@ -6,17 +6,14 @@ public class Player : MonoBehaviour
 {
 	public int maxHealth = 100;
 	public int currentHealth;
-
 	public HealthBar healthBar;
 	public Rigidbody2D rb;
 	
-
 	// Start is called before the first frame update
 	void Start()
 	{
 		currentHealth = maxHealth;
-		healthBar.SetMaxHealth(maxHealth);
-		
+		healthBar.SetMaxHealth(maxHealth);				
 	}
 
 	// Update is called once per frame
@@ -28,14 +25,14 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	void TakeDamage(int damage)
+	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
 	}
 
-
+	//checks if XP is in radius of the trigger collider 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
 		XPcollect XP = collision.GetComponent<XPcollect>();

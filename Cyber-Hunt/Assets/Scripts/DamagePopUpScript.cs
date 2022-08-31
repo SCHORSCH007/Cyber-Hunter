@@ -45,8 +45,7 @@ public class DamagePopUpScript : MonoBehaviour
             TextColor = CritColor;
             disappearTimer = 1f;
         }
-       
-        
+               
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
     }
@@ -81,13 +80,5 @@ public class DamagePopUpScript : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
     }
-
-
-
-
-    // Update is called once per frame
-
-
 }

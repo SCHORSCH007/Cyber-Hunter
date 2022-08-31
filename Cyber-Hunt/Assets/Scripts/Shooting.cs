@@ -11,7 +11,7 @@ public class Shooting : MonoBehaviour
     public bool canFire = true;
     public float attackSpeed = 1f;
     private float delay = 1f;
-    public int damage;
+    
     // Start is called before the first frame update
     void Start()
     {

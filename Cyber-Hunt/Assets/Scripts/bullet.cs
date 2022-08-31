@@ -24,8 +24,6 @@ public class bullet : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
-
-
     }
 
     // Update is called once per frame
@@ -42,10 +40,6 @@ public class bullet : MonoBehaviour
             enemy.TakeDamage(damage);
             DamagePopUpScript.Create(enemy.transform.position, damage, false);
             Destroy(gameObject);
-        }
-
-        //Instantiate(impactEffect, transform.position, transform.rotation);
-
-       
+        }    
     }
 }

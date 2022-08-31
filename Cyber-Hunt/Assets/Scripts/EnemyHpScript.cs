@@ -18,14 +18,8 @@ public class EnemyHpScript : MonoBehaviour
         health -= Damage;
         if(health <= 0)
         {
-            //  GetComponent<ParticleSystem>().Play();
-            //   ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
-            // em.enabled = true;
             Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
-        }
-        
-        
-    }
-   
+        }               
+    }  
 }
