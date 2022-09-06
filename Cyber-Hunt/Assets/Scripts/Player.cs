@@ -8,12 +8,17 @@ public class Player : MonoBehaviour
 	public int currentHealth;
 	public HealthBar healthBar;
 	public Rigidbody2D rb;
+	static bool isDead;
+	private GameObject DeathScreen;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
 		currentHealth = maxHealth;
-		healthBar.SetMaxHealth(maxHealth);				
+		healthBar.SetMaxHealth(maxHealth);
+		isDead = false;
+		DeathScreen = GameObject.FindWithTag("DeathMenu");
+		DeathScreen.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -30,6 +35,12 @@ public class Player : MonoBehaviour
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
+		
+		if(currentHealth<= 0){
+			isDead = true;
+			DeathScreen.SetActive(true);
+			Time.timeScale = 0;
+		}
 	}
 
 	//checks if XP is in radius of the trigger collider 

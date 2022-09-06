@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Level
   - XP
+  - DeathMenu
   layers:
   - Default
   - TransparentFX
