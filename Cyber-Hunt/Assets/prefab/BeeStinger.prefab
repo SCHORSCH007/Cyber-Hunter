@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 9190765226308769}
   m_Layer: 0
   m_Name: BeeStinger
-  m_TagString: Untagged
+  m_TagString: EnemyProj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
