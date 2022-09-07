@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public int maxHealth = 100;
+	
 	public int currentHealth;
 	public HealthBar healthBar;
 	public Rigidbody2D rb;
@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		currentHealth = maxHealth;
-		healthBar.SetMaxHealth(maxHealth);
+		currentHealth = globalVarables.playerMaxHealth;
+		healthBar.SetMaxHealth(globalVarables.playerMaxHealth);
 		isDead = false;
 		DeathScreen = GameObject.FindWithTag("DeathMenu");
 		DeathScreen.SetActive(false);
@@ -36,7 +36,8 @@ public class Player : MonoBehaviour
 
 		healthBar.SetHealth(currentHealth);
 		
-		if(currentHealth<= 0){
+		if(currentHealth<= 0)
+		{
 			isDead = true;
 			DeathScreen.SetActive(true);
 			Time.timeScale = 0;
@@ -60,10 +61,5 @@ public class Player : MonoBehaviour
 			XP.moveToPlayer = false;
 		}
 	}
-
-
-
-
-
 }
 
