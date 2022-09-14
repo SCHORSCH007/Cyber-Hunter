@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
 	public Rigidbody2D rb;
 	static bool isDead;
 	private GameObject DeathScreen;
+	private GameObject LevelUpMenu;
+	public TextMeshProUGUI mesh;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -18,7 +21,10 @@ public class Player : MonoBehaviour
 		healthBar.SetMaxHealth(globalVarables.playerMaxHealth);
 		isDead = false;
 		DeathScreen = GameObject.FindWithTag("DeathMenu");
+		LevelUpMenu = GameObject.FindWithTag("LevelUpMenu");
 		DeathScreen.SetActive(false);
+		LevelUpMenu.SetActive(false);
+		mesh.SetText(currentHealth.ToString());
 	}
 
 	// Update is called once per frame
@@ -26,7 +32,7 @@ public class Player : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			TakeDamage(20);
+			
 		}
 	}
 
@@ -35,8 +41,9 @@ public class Player : MonoBehaviour
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
-		
-		if(currentHealth<= 0)
+		mesh.SetText(currentHealth.ToString());
+
+		if (currentHealth<= 0)
 		{
 			isDead = true;
 			DeathScreen.SetActive(true);
