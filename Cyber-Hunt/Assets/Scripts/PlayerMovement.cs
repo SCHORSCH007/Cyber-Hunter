@@ -21,4 +21,12 @@ public class PlayerMovement : MonoBehaviour
         //movement
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
+
+    public void dash(float dashVelocity)
+    {
+        rb.AddForce(rb.position + movement.normalized * dashVelocity);
+        
+        Debug.Log("dash");
+    }
+    
 }
