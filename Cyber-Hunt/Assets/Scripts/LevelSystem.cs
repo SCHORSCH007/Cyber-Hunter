@@ -11,7 +11,7 @@ public class LevelSystem : MonoBehaviour
     public float requiredXP;
     public GameObject mesh;
     public TextMeshProUGUI TextMesh;
-
+    private GameObject LevelUpMenu;
     private float lerpTimer;
     
     [Header("UI")]
@@ -21,6 +21,7 @@ public class LevelSystem : MonoBehaviour
    
     private void Awake()
     {
+        LevelUpMenu = GameObject.FindWithTag("LevelUpMenu");
         GameObject Level = GameObject.FindWithTag("Level");
         if(Level != null)
         {
@@ -67,7 +68,10 @@ public class LevelSystem : MonoBehaviour
             frontXpBar.fillAmount = 0f;
             level = level +1;
             currentXP = 0f;
+            LevelUpMenu.SetActive(true);
+            Time.timeScale = 0;
             TextMesh.SetText(level.ToString());
+            
 
         }
     }
