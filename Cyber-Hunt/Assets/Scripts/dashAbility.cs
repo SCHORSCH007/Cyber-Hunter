@@ -12,7 +12,9 @@ public class dashAbility : Ability
         PlayerMovement movement = parent.GetComponent<PlayerMovement>();
         Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
 
-        rb.velocity = movement.movement.normalized * dashVelocity;
+
+        //rb.velocity = movement.movement.normalized * dashVelocity;
+        movement.dash(dashVelocity);
 
         //m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
         //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, m_DashForce / 10));
