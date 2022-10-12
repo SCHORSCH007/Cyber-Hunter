@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Rigidbody2D rb = null;
 
-    public Vector2 movement;
+    private Vector2 movement = Vector2.zero;
+
+    public float MoveSpeed
+    {
+        get => moveSpeed;
+        set => moveSpeed = value; 
+    }
+
 
     // Update is called once per frame
     void Update()
