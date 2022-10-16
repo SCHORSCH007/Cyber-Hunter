@@ -6,10 +6,10 @@ public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 MousePos;
-    public GameObject bullet;
-    public Transform bulletTransform;
-    public bool canFire = true;
-    public float attackSpeed = 1f;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform bulletTransform;
+    [SerializeField] private bool canFire = true;
+    [SerializeField] private float attackSpeed = 1f;
     private float delay = 1f;
     
     // Start is called before the first frame update

@@ -6,17 +6,17 @@ using TMPro;
 
 public class LevelSystem : MonoBehaviour
 {
-    public float level;
-    public float currentXP;
-    public float requiredXP;
-    public GameObject mesh;
-    public TextMeshProUGUI TextMesh;
+    [SerializeField] private float level;
+    [SerializeField] private float currentXP;
+    [SerializeField] private float requiredXP;
+    [SerializeField] private GameObject mesh;
+    [SerializeField] private TextMeshProUGUI TextMesh;
     private GameObject LevelUpMenu;
-    private float lerpTimer;
+   
     
     [Header("UI")]
 
-    public Image frontXpBar;
+    [SerializeField] private Image frontXpBar;
 
    
     private void Awake()
@@ -63,7 +63,7 @@ public class LevelSystem : MonoBehaviour
         {
           frontXpBar.fillAmount = xpFraction;
         }
-        if(currentXP== requiredXP)
+        if(currentXP >= requiredXP)
         {
             frontXpBar.fillAmount = 0f;
             level = level +1;

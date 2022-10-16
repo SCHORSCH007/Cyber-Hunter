@@ -7,8 +7,8 @@ public class bullet : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCamera;
     private Rigidbody2D rb;
-    public float force;
-    public int damage = 1;
+    [SerializeField] private float force;
+    [SerializeField] public int damage = 1;
     
 
     // Start is called before the first frame update

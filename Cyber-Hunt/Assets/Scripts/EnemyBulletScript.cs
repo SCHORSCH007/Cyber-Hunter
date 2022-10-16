@@ -5,10 +5,15 @@ using UnityEngine;
 public class EnemyBulletScript : MonoBehaviour
 {
         private Rigidbody2D rb;
-        public float force;
-        public int damage = 1;
-        private Transform player;
-        public float lifetime;
+    [SerializeField] private float force;
+    [SerializeField] private int Damage = 1;
+    public int damage
+    {
+        get => Damage;
+        set => Damage = value;
+    }
+    private Transform player;
+    [SerializeField] private float lifetime;
         Player p;
         private float currentTime;
 

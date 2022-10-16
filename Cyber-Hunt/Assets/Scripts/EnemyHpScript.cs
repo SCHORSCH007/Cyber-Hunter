@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyHpScript : MonoBehaviour
 {
-    public int maxHealth = 3;
+    [SerializeField] private int maxHealth = 3;
     [SerializeField] GameObject drop;
-    [HideInInspector] public int health;
+    public int health;
 
     private void Start()
     {

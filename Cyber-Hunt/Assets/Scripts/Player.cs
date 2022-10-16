@@ -7,12 +7,12 @@ public class Player : MonoBehaviour
 {
 	
 	public int currentHealth;
-	public HealthBar healthBar;
-	public Rigidbody2D rb;
+	[SerializeField] private HealthBar healthBar;
+	[SerializeField] private Rigidbody2D rb;
 	static bool isDead;
 	private GameObject DeathScreen;
 	private GameObject LevelUpMenu;
-	public TextMeshProUGUI mesh;
+	[SerializeField] private TextMeshProUGUI mesh;
 	
 	// Start is called before the first frame update
 	void Start()

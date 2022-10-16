@@ -8,7 +8,7 @@ public class DamagePopUpScript : MonoBehaviour
     private TextMeshPro textMesh;
     private float disappearTimer;
     private Color TextColor;
-    public Color CritColor;
+    [SerializeField] private Color CritColor;
     private const float Disapear_Timer_Max = 1f;
     
     

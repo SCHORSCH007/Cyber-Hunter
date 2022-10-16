@@ -20,4 +20,9 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        GameObject.FindWithTag("LevelUpMenu").SetActive(false);
+    }
 }
