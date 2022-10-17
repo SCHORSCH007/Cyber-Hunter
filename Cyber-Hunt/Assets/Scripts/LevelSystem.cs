@@ -6,11 +6,16 @@ using TMPro;
 
 public class LevelSystem : MonoBehaviour
 {
-    [SerializeField] private float level;
-    [SerializeField] private float currentXP;
+     
     [SerializeField] private float requiredXP;
     [SerializeField] private GameObject mesh;
-    [SerializeField] private TextMeshProUGUI TextMesh;
+    [SerializeField] private TextMeshProUGUI Skillpoints;
+    
+    private TextMeshProUGUI TextMesh;
+    private float level;
+    private float currentXP;
+    private int _Skillp = 0;
+
     private GameObject LevelUpMenu;
    
     
@@ -67,6 +72,8 @@ public class LevelSystem : MonoBehaviour
         {
             frontXpBar.fillAmount = 0f;
             level = level +1;
+            _Skillp++;
+            Skillpoints.SetText(_Skillp.ToString());
             currentXP = 0f;
             LevelUpMenu.SetActive(true);
             Time.timeScale = 0;
