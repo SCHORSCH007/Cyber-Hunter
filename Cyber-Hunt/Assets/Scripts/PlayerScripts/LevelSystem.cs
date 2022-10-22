@@ -76,7 +76,8 @@ public class LevelSystem : MonoBehaviour
             Skillpoints.SetText(_Skillp.ToString());
             currentXP = 0f;
             LevelUpMenu.SetActive(true);
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
+
             TextMesh.SetText(level.ToString());
             
 

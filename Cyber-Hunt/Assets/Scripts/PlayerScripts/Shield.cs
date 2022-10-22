@@ -6,16 +6,19 @@ public class Shield : MonoBehaviour
 {
     int hP = 5;
     [SerializeField] int maxHP = 5;
-    
-  
- 
+
+
+
     // Update is called once per frame
     void Update()
     {
+        if (gameObject != null) { 
         if (hP <= 0)
         {
             gameObject.SetActive(false);
         }
+
+    }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

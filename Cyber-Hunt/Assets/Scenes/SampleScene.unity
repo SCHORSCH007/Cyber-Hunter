@@ -334,6 +334,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26242263}
   m_CullTransparentMesh: 1
+--- !u!1 &48134995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4080715984937069788, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
+  m_PrefabInstance: {fileID: 4080715984900758374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &48134997 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
+  m_PrefabInstance: {fileID: 4080715984900758374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &48134998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48134995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7743a52a39c314e44b67228e2e986d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Healthbar: {fileID: 904027079}
+  _Player: {fileID: 1672019245}
+  _Healthbuttons:
+  - {fileID: 2102719719}
+  - {fileID: 842611877}
+  - {fileID: 2038278351}
+  - {fileID: 325205910}
+  - {fileID: 716982126}
 --- !u!1 &52321680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1795,7 @@ Transform:
   - {fileID: 1816234538}
   - {fileID: 217596848}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262078221
 GameObject:
@@ -2166,7 +2196,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2206,7 +2236,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2217,7 +2247,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 325205911}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: HealthButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &325205911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3173,7 +3215,7 @@ Transform:
   - {fileID: 334131854}
   - {fileID: 728626273}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -3188,7 +3230,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3259,6 +3300,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 48134997}
   - {fileID: 1523083679}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3311,18 +3353,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7743a52a39c314e44b67228e2e986d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &606358850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3471,7 +3501,7 @@ Transform:
   - {fileID: 2119214609}
   - {fileID: 2011619835}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &619241111
 PolygonCollider2D:
@@ -4290,7 +4320,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -4330,7 +4360,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -4341,7 +4371,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 716982127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: HealthButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &716982127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4954,7 +4996,7 @@ Transform:
   - {fileID: 790819772}
   - {fileID: 1650460373}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761823088
 GameObject:
@@ -5009,7 +5051,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -5784,7 +5826,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -5824,7 +5866,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -5835,7 +5877,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 842611878}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: HealthButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &842611878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6132,6 +6186,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 811875949}
+  hp: {fileID: 0}
 --- !u!114 &904027080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7407,7 +7462,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 519420035}
+      - m_Target: {fileID: 48134998}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -7627,7 +7682,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -8180,7 +8235,7 @@ Transform:
   - {fileID: 1171665744}
   - {fileID: 623307039}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265688564
 GameObject:
@@ -8304,7 +8359,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -9021,7 +9076,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.95
+  m_fontSize: 50
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9666,7 +9721,7 @@ Transform:
   - {fileID: 1194586338}
   - {fileID: 1766567480}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1520674069
 GameObject:
@@ -9808,7 +9863,7 @@ RectTransform:
   - {fileID: 1149979561}
   - {fileID: 1190647257}
   m_Father: {fileID: 519420032}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10121,7 +10176,7 @@ Transform:
   - {fileID: 1672019237}
   - {fileID: 702659404}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1567516859
 MonoBehaviour:
@@ -10890,7 +10945,7 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 904027079}
   rb: {fileID: 1567516860}
-  mesh: {fileID: 289794438}
+  hp: {fileID: 289794438}
 --- !u!1 &1700396922
 GameObject:
   m_ObjectHideFlags: 0
@@ -10975,7 +11030,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 519420035}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1
@@ -30221,7 +30276,7 @@ Tilemap:
       - {fileID: -1018879276, guid: cb618e7803d7c2d41896a2d5537bfa68, type: 3}
       - {fileID: 246806691, guid: cb618e7803d7c2d41896a2d5537bfa68, type: 3}
       - {fileID: 1639061678, guid: cb618e7803d7c2d41896a2d5537bfa68, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 9, y: 2, z: 0}
@@ -30734,7 +30789,7 @@ Transform:
   - {fileID: 1265688565}
   - {fileID: 1070125471}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1797754709
 GameObject:
@@ -31061,7 +31116,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -31361,7 +31416,7 @@ Transform:
   - {fileID: 383193121}
   - {fileID: 1062472707}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2011619834
 GameObject:
@@ -31447,7 +31502,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -31487,7 +31542,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -31498,7 +31553,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2038278352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: HealthButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2038278352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31937,9 +32004,9 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -1491042257, guid: 870d51f739284b74b816df74671cd059, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -31950,7 +32017,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2102719720}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: HealthButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2102719720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32001,7 +32080,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d05f5ea233ca534aa25120688866dfd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -32389,23 +32468,35 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 519420032}
     m_Modifications:
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0724956
+      value: -1.0725708
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3250926
+      value: -0.15515138
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01713667
+      value: 9.972863
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32413,15 +32504,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4080715984937069786, guid: c634c67803720a048a1eff6fcfe7183a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
