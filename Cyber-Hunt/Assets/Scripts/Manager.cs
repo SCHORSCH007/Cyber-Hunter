@@ -10,6 +10,10 @@ public class Manager : MonoBehaviour
     [SerializeField] private HealthBar _Healthbar;
     [SerializeField] private Player _Player;
     [SerializeField] private Button[] _Healthbuttons;
+    [SerializeField] private GameObject blade1;
+    [SerializeField] private GameObject blade2;
+    [SerializeField] private GameObject blade3;
+    [SerializeField] private GameObject blade4;
     private int i = 0;
 
     // Start is called before the first frame update
@@ -51,6 +55,39 @@ public class Manager : MonoBehaviour
 
 
 
+    }
+    public void SwordButtonPressed()
+    {
+        Button currentb = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+        currentb.interactable = false;
+        if (!blade1.active)
+
+        {
+            blade1.SetActive(true);
+        }
+        else if (!blade2.active)
+        {
+            blade2.SetActive(true);
+        }
+        else if (!blade3.active)
+        {
+            blade1.transform.localEulerAngles = new Vector3(0, 0, -120);
+            blade1.transform.localPosition = new Vector3(0.7f, -0.4f, 0);
+            
+            blade2.transform.localEulerAngles = new Vector3(0, 0, 120);
+            blade2.transform.localPosition = new Vector3(-0.7f, -0.4f, 0);
+            blade3.SetActive(true);
+        }
+        else
+        {
+            blade1.transform.localEulerAngles = new Vector3(0, 0, -90);
+            blade1.transform.localPosition = new Vector3(0.8f, 0, 0);
+
+            blade2.transform.localEulerAngles = new Vector3(0, 0, 90);
+            blade2.transform.localPosition = new Vector3(-0.8f, 0, 0);
+
+            blade4.SetActive(true);
+        }
     }
 }
    

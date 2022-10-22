@@ -364,6 +364,10 @@ MonoBehaviour:
   - {fileID: 2038278351}
   - {fileID: 325205910}
   - {fileID: 716982126}
+  blade1: {fileID: 1410068088}
+  blade2: {fileID: 455991214}
+  blade3: {fileID: 974866565}
+  blade4: {fileID: 620559620}
 --- !u!1 &52321680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &351679079
 Transform:
   m_ObjectHideFlags: 0
@@ -2727,7 +2731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &455991215
 Transform:
   m_ObjectHideFlags: 0
@@ -3643,7 +3647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &620559621
 Transform:
   m_ObjectHideFlags: 0
@@ -5102,7 +5106,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 761823092}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: SwordButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &761823092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6371,7 +6387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &974866566
 Transform:
   m_ObjectHideFlags: 0
@@ -7733,7 +7749,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1167560218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: SwordButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1167560218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8410,7 +8438,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1327320424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: SwordButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1327320424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8854,7 +8894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1410068089
 Transform:
   m_ObjectHideFlags: 0
@@ -9076,7 +9116,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 49.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -30178,7 +30218,7 @@ Tilemap:
       - {fileID: -1018879276, guid: cb618e7803d7c2d41896a2d5537bfa68, type: 3}
       - {fileID: 246806691, guid: cb618e7803d7c2d41896a2d5537bfa68, type: 3}
       - {fileID: 1639061678, guid: cb618e7803d7c2d41896a2d5537bfa68, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -16, y: -3, z: 0}
@@ -31167,7 +31207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1905594164}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48134998}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: SwordButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1905594164
 MonoBehaviour:
   m_ObjectHideFlags: 0
