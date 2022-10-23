@@ -22,15 +22,18 @@ UI
 	mit xp anzeige bis zum nächsten levelup (fertig)
 	Zeitanzeige
 	healthbar über dem Spieler (fertig)
-	Fähigkeitenanzeige
+	Fähigkeitenanzeige 
 	level-up Menu (game pause)
 	pause-menu
-	death-menu
+	death-menu (fertig)
 	start-menu
 	
 
 
 User Story
+
+	OPTIMIZATION OF BULLETS AND ENEMIES!!!
+
 	bewegen des players (fertig)
 	-> texturen für player
 	-> logic
@@ -41,7 +44,8 @@ User Story
 	-> tetxturen (WIP)
 	-> gegner AI (nichts komliziertes, nicht direkte verfolgung) (fertig)
 	-> drop xp(fertig)
-	-> drop chests
+	-> drop chests 
+	-> spawner (WIP)
 	Fähigkeiten
 	-> animations + partikel
 	
@@ -63,19 +67,21 @@ User Story
 	- speed
 	- attackspeed {global oder per skill}
 	- HP 
-	- 
+	
+
 	
 	
 	
 	Ui
 	...
-	leben und sterben des players (Leben Ja sterben nein)
+	leben und sterben des players (fertig)
 	-> logic
 	-> XP System (fertig)
 	-> animatiton sterben
 	
 	
-	Zentrale klasse zum verwalten der Stats und freigeschalteten Fähigkeiten
+	Zentrale klasse zum verwalten der Stats und freigeschalteten Fähigkeiten (WIP)
+
 	
 	
 
