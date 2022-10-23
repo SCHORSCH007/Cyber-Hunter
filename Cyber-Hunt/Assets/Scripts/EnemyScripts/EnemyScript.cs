@@ -5,14 +5,15 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
     
 {
-    [SerializeField] private Transform player;
     [SerializeField] private float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = this.GetComponent<Rigidbody2D>();
     }
 

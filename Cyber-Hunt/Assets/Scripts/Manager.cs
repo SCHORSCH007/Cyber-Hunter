@@ -9,21 +9,24 @@ public class Manager : MonoBehaviour
 {
     [SerializeField] private HealthBar _Healthbar;
     [SerializeField] private Player _Player;
-    [SerializeField] private Button[] _Healthbuttons;
     [SerializeField] private GameObject blade1;
     [SerializeField] private GameObject blade2;
     [SerializeField] private GameObject blade3;
     [SerializeField] private GameObject blade4;
-    private int i = 0;
+
+    private SpriteRenderer sp1;
+    private SpriteRenderer sp2;
+    private SpriteRenderer sp3;
+    private SpriteRenderer sp4;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        _Healthbuttons = new Button [4];
-        for(int i = 1; i> 4; i++)
-        {
-            _Healthbuttons[i].interactable = false;
-        }
+        sp1 = blade1.GetComponent<SpriteRenderer>();
+        sp2 = blade2.GetComponent<SpriteRenderer>();
+        sp3 = blade3.GetComponent<SpriteRenderer>();
+        sp4 = blade4.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -88,6 +91,18 @@ public class Manager : MonoBehaviour
 
             blade4.SetActive(true);
         }
+    }
+    public void SwordDamageButtonPressed()
+    {
+        Button currentb = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+        currentb.interactable = false;
+       
+        sp1.color = new Color(255, 0, 151);
+        sp2.color = new Color(255, 0, 151);
+        sp3.color = new Color(255, 0, 151);
+        sp4.color = new Color(255, 0, 151);
+
+
     }
 }
    

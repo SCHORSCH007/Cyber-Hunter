@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2686253249577740441}
   - component: {fileID: 1763990306397235257}
-  - component: {fileID: 7943008976235173098}
-  - component: {fileID: 3681478258705924419}
   - component: {fileID: 3951454929156709208}
+  - component: {fileID: 1679770230006890744}
   m_Layer: 0
   m_Name: droneRocket
   m_TagString: EnemyProj
@@ -87,63 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7943008976235173098
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6979645128090173472}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.0010522669, y: 0.008589726}
-      - {x: -0.049991194, y: -0.05141886}
-      - {x: -0.051349293, y: -0.060777254}
-      - {x: -0.020264795, y: -0.05933093}
-      - {x: -0.019276997, y: -0.07048876}
-      - {x: -0.019309236, y: -0.071049616}
-      - {x: 0.030032242, y: -0.07104962}
-      - {x: 0.031678572, y: -0.06112176}
-      - {x: 0.060658537, y: -0.06}
-      - {x: 0.060658526, y: -0.050705135}
-      - {x: 0.0089477245, y: 0.009258801}
---- !u!50 &3681478258705924419
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6979645128090173472}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &3951454929156709208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,5 +100,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 2
   damage: 1
-  lifetime: 6
+  lifetime: 3
   updatingDirection: 0.5
+--- !u!61 &1679770230006890744
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979645128090173472}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0051431693, y: -0.04931821}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.046383046, y: 0.10977492}
+  m_EdgeRadius: 0

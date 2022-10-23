@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class BeeScript : MonoBehaviour
 {
-    public Transform player;
-    public float moveSpeed = 5f;
+    
+    [SerializeField] private float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
     private CircleCollider2D collPlayer;
     [HideInInspector] public bool inRange;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = this.GetComponent<Rigidbody2D>();
         collPlayer = player.GetComponent<CircleCollider2D>();
         inRange = false;
