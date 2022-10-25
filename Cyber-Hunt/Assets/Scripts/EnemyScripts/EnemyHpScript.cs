@@ -14,11 +14,18 @@ public class EnemyHpScript : MonoBehaviour
     }
     public void TakeDamage(int Damage)
     {
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 151);
+        StartCoroutine(colorFeedback());
         health -= Damage;
         if(health <= 0)
         {
             Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }               
-    }  
+    }
+    IEnumerator colorFeedback()
+    {
+        yield return new WaitForSeconds(0.2f);
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+    }
 }
