@@ -4,53 +4,48 @@ using UnityEngine;
 
 public class EnemyBulletScript : MonoBehaviour
 {
-        private Rigidbody2D rb;
-    [SerializeField] private float force;
-    [SerializeField] private int Damage = 1;
+
+    [SerializeField] 
+    private float _moveSpeed = 1f;
+
+    [SerializeField] 
+    private int _Damage = 1;
+
+    private Vector2 moveVec;
     public int damage
     {
-        get => Damage;
-        set => Damage = value;
+        get => _Damage;
+        set => _Damage = value;
     }
-    private Transform player;
     [SerializeField] private float lifetime;
-        Player p;
-        private float currentTime;
 
 
-    void Start()
-        {
-        p = GameObject.FindWithTag("Player").GetComponent<Player>();
-        player = GameObject.FindWithTag("Player").transform;
-
-        rb = GetComponent<Rigidbody2D>();
-        currentTime = Time.time;
-
-        Vector3 direction = player.position - transform.position;
-        direction.Normalize();
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
-        float rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot - 90);
-        }
-   
-    private void FixedUpdate()
+    private void OnEnable()
     {
-        if (lifetime + currentTime < Time.time)
-        {
-            Destroy(gameObject);
-        }
+        Invoke("Destroy", lifetime);  
     }
-    
-    void OnTriggerEnter2D(Collider2D hitInfo)
-        {
 
-        
-        XpPickUp x = hitInfo.GetComponent<XpPickUp>();
-             
-            if(x != null)
-            {
-            p.TakeDamage(damage);
-            Destroy(gameObject);
-            }          
-        }
+    public void Update()
+    {
+        transform.Translate(moveVec * _moveSpeed * Time.deltaTime);     
     }
+
+    //set direction of the Bullet
+    public void setMoveDirection(Vector2 target)
+    {
+       moveVec = target;
+    }
+
+    //return Bullet to pool
+    private void Destroy()
+    {
+        gameObject.SetActive(false);
+    }
+
+    //Cancle Invoke
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
+
+}

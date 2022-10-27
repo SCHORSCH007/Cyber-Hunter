@@ -4,20 +4,46 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public bool canFire = true;
-    public float attackSpeed = 1f;
-    private float delay = 1f;
-    public GameObject bullet;
-    public Transform bulletTransform;
-   
+    [SerializeField]
+    private bool canFire = true;
+    
+    [SerializeField]
+    private float _attackSpeed = 1f;
 
-    // Update is called once per frame
-    void Update()
+    private Vector2 target;
+
+    private float delay = 1f;
+    //bullet Sin and Cos
+    private float X;
+    private float Y;
+
+
+    private void Awake()
     {
-        if (canFire && Time.time > delay)
-        {
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-            delay = Time.time + attackSpeed;
-        }
+       
+
+     
+        delay = Random.Range(1f, 3f);
+        InvokeRepeating("Fire", delay, _attackSpeed);
+
+    }
+    // Update is called once per frame
+  
+    private void Fire()
+    {
+        X = Mathf.Cos((transform.rotation.z + 90 * Mathf.PI) / 180);
+        Y = Mathf.Sin((transform.rotation.z + 90 * Mathf.PI) / 180);
+
+        target = new Vector2(X, Y);
+
+        Vector3 bulMoveVector = transform.forward;
+       
+
+        GameObject bul = EnemyBulletPool.bulletPoolInstance.GetBullet();
+        bul.transform.position = transform.position;
+        bul.transform.rotation = transform.rotation;
+        bul.SetActive(true);
+        bul.GetComponent<EnemyBulletScript>().setMoveDirection(target);
+    
     }
 }
