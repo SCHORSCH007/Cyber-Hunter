@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2709256712974664012}
   - component: {fileID: 3383991038694539429}
-  - component: {fileID: 4917454962769563158}
   - component: {fileID: 214401637875754677}
   - component: {fileID: 7973980746031291072}
   - component: {fileID: 6584286800549838114}
   - component: {fileID: 7112530097184646972}
   - component: {fileID: 6008721552363440841}
   - component: {fileID: 6226481206055662748}
+  - component: {fileID: 7403900015234537310}
   m_Layer: 0
   m_Name: bee
   m_TagString: Untagged
@@ -93,27 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4917454962769563158
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488332892394885650}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!70 &214401637875754677
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -209,6 +188,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &7403900015234537310
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2488332892394885650}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3323300353677145624
 GameObject:
   m_ObjectHideFlags: 0

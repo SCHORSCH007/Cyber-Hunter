@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 2
   _Damage: 1
-  lifetime: 5
+  lifetime: 3
 --- !u!1 &9139401246189493219
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &561460502818908929
 Transform:
   m_ObjectHideFlags: 0
