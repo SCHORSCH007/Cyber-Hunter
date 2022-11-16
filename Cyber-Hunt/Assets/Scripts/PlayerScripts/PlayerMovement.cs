@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float og_moveSpeed = 5f;
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private Sprite p_r;
     [SerializeField] private Sprite p_l;
@@ -14,18 +14,21 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight;
     private bool alreadyFacingRight;
     private SpriteRenderer sp;
-    
+    private float countdown_dash;
+    private float delay_dash;
+    private float moveSpeed;
 
     private void Awake()
     {
         isFacingRight = false;
         alreadyFacingRight = true;
         sp = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();
+        moveSpeed = og_moveSpeed;
     }
     public float MoveSpeed
     {
-        get => moveSpeed;
-        set => moveSpeed = value; 
+        get => og_moveSpeed;
+        set => og_moveSpeed = value; 
     }
 
 
@@ -69,19 +72,34 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        if (_dashVelocity > 0)
+        if (countdown_dash > 0)
         {
-            rb.AddForce(rb.position + movement.normalized * _dashVelocity * Time.fixedDeltaTime);
-            //_dashVelocity = 0f;
+            if (delay_dash > 0)
+            {
+                delay_dash--;
+            }
+            else
+            {
+                moveSpeed = _dashVelocity;
+                countdown_dash--;
+                if (countdown_dash == 0)
+                {
+                    moveSpeed = og_moveSpeed;
+                }
+                delay_dash = 0; 
+            }
         }
         
         
     }
 
-    public void dash(float dashVelocity)
+    public void dash(float dashVelocity, float duration, float delay)
     {
         // rb.AddForce(rb.position + movement.normalized * dashVelocity);
         _dashVelocity = dashVelocity;
+        countdown_dash = duration;
+        delay_dash = delay;
+        GameObject.FindWithTag("ParticleSystemDash").GetComponent<ParticleSystem>().Play();
         Debug.Log("dash");
     }
 
