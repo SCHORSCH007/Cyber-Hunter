@@ -6,28 +6,42 @@ using TMPro;
 public class Player : MonoBehaviour
 {
 	
-	public int currentHealth;
+	
 	[SerializeField] private HealthBar healthBar;
 	[SerializeField] private Rigidbody2D rb;
+	[SerializeField] private TextMeshProUGUI hp;
 	private GameObject DeathScreen;
 	private GameObject LevelUpMenu;
-	[SerializeField] private TextMeshProUGUI hp;
-	
-	// Start is called before the first frame update
-	void Start()
-	{
-		currentHealth = globalVarables.playerMaxHealth;
-		healthBar.SetMaxHealth(globalVarables.playerMaxHealth);
+	private int currentHealth;
+	private PlayerSkills playerSkills;
+
+
+    // Start is called before the first frame update
+
+
+    private void Awake()
+    {
+		playerSkills = new PlayerSkills();
 		DeathScreen = GameObject.FindWithTag("DeathMenu");
 		LevelUpMenu = GameObject.FindWithTag("LevelUpMenu");
+		currentHealth = globalVarables.playerMaxHealth;
+	}
+   
+	void Start()
+	{	
+		healthBar.SetMaxHealth(globalVarables.playerMaxHealth);
 		DeathScreen.SetActive(false);
 		LevelUpMenu.SetActive(false);
 		hp.SetText(currentHealth.ToString());
 	}
  
 
+	public PlayerSkills GetPlayerSkills()
+    {
+		return playerSkills;
+    }
+		
 
-	// Update is called once per frame
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -39,7 +53,6 @@ public class Player : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
-
 		healthBar.SetHealth(currentHealth);
 		hp.SetText(currentHealth.ToString());
 
@@ -55,6 +68,14 @@ public class Player : MonoBehaviour
 		healthBar.SetHealth(currentHealth);
 		hp.SetText(currentHealth.ToString());
 	}
+
+	private void SetMaxHealth (int maxHealth)
+    {
+		globalVarables.playerMaxHealth = maxHealth;
+		healthBar.SetMaxHealth(currentHealth);
+	}
+
+
 
 	//checks if XP is in radius of the trigger collider 
     private void OnTriggerEnter2D(Collider2D collision)

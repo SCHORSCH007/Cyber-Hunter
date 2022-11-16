@@ -41,7 +41,6 @@ public class Manager : MonoBehaviour
     }
     public void Resume()
     {
-
         GameObject.FindWithTag("LevelUpMenu").SetActive(false);
         Time.timeScale = 1f;
     }
@@ -59,37 +58,38 @@ public class Manager : MonoBehaviour
 
 
     }
-    public void SwordButtonPressed()
+    public void SwordButtonActivated(int bladenumber)
     {
         Button currentb = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
         currentb.interactable = false;
-        if (!blade1.active)
+        switch (bladenumber)
+        {
 
-        {
-            blade1.SetActive(true);
-        }
-        else if (!blade2.active)
-        {
-            blade2.SetActive(true);
-        }
-        else if (!blade3.active)
-        {
-            blade1.transform.localEulerAngles = new Vector3(0, 0, -120);
-            blade1.transform.localPosition = new Vector3(0.7f, -0.4f, 0);
-            
-            blade2.transform.localEulerAngles = new Vector3(0, 0, 120);
-            blade2.transform.localPosition = new Vector3(-0.7f, -0.4f, 0);
-            blade3.SetActive(true);
-        }
-        else
-        {
-            blade1.transform.localEulerAngles = new Vector3(0, 0, -90);
-            blade1.transform.localPosition = new Vector3(0.8f, 0, 0);
+            case 1:
+                blade1.SetActive(true);
+                break;
 
-            blade2.transform.localEulerAngles = new Vector3(0, 0, 90);
-            blade2.transform.localPosition = new Vector3(-0.8f, 0, 0);
+            case 2:
+                blade2.SetActive(true);
+                break;
 
-            blade4.SetActive(true);
+            case 3:
+                blade1.transform.localEulerAngles = new Vector3(0, 0, -120);
+                blade1.transform.localPosition = new Vector3(0.7f, -0.4f, 0);
+                blade2.transform.localEulerAngles = new Vector3(0, 0, 120);
+                blade2.transform.localPosition = new Vector3(-0.7f, -0.4f, 0);
+                blade3.SetActive(true);
+                break;
+
+            case 4:
+                blade1.transform.localEulerAngles = new Vector3(0, 0, -90);
+                blade1.transform.localPosition = new Vector3(0.8f, 0, 0);
+                blade2.transform.localEulerAngles = new Vector3(0, 0, 90);
+                blade2.transform.localPosition = new Vector3(-0.8f, 0, 0);
+                blade4.SetActive(true);
+                break;
+
+            default: break;
         }
     }
     public void SwordDamageButtonPressed()

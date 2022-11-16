@@ -9,6 +9,7 @@ TagManager:
   - DeathMenu
   - EnemyProj
   - LevelUpMenu
+  - assets
   layers:
   - Default
   - TransparentFX

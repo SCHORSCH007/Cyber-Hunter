@@ -37,7 +37,6 @@ User Story
 	bewegen des players (fertig)
 	-> texturen für player
 	-> logic
-	world generation (erstmal ausgesetzt)
 	-> texturen für Map (WIP)
 	-> logic
 	Gegner
