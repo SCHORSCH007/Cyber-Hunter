@@ -9,7 +9,7 @@ TagManager:
   - DeathMenu
   - EnemyProj
   - LevelUpMenu
-  - assets
+  - ParticleSystemDash
   layers:
   - Default
   - TransparentFX

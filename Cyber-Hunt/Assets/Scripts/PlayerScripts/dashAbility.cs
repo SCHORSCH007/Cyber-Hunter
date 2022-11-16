@@ -6,6 +6,8 @@ using UnityEngine;
 public class dashAbility : Ability
 {
     public float dashVelocity;
+    public float duration;
+    public float delay;
 
     public override void Activate(GameObject parent)
     {
@@ -14,7 +16,7 @@ public class dashAbility : Ability
 
 
         //rb.velocity = movement.movement.normalized * dashVelocity;
-        movement.dash(dashVelocity);
+        movement.dash(dashVelocity, duration, delay);
 
         //m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
         //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, m_DashForce / 10));
