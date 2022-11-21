@@ -25,7 +25,34 @@ public class Player : MonoBehaviour
 		DeathScreen = GameObject.FindWithTag("DeathMenu");
 		LevelUpMenu = GameObject.FindWithTag("LevelUpMenu");
 		currentHealth = globalVarables.playerMaxHealth;
+		playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
 	}
+
+	private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
+    {
+       switch (e.skillType)
+        {
+			case PlayerSkills.SkillType.Health1:
+				SetMaxHealth(20);
+				break;
+			case PlayerSkills.SkillType.Health2:
+				SetMaxHealth(30);
+				break;
+			case PlayerSkills.SkillType.Health3:
+				SetMaxHealth(40);
+				break;
+			case PlayerSkills.SkillType.Health4:
+				SetMaxHealth(50);
+				break;
+			case PlayerSkills.SkillType.Health5:
+				SetMaxHealth(60);
+				break;
+			case PlayerSkills.SkillType.OverallDamage1:
+				AddOverallDamage(1);
+				break;
+			
+		}
+    }
    
 	void Start()
 	{	
@@ -71,9 +98,17 @@ public class Player : MonoBehaviour
 
 	private void SetMaxHealth (int maxHealth)
     {
+		int cur = globalVarables.playerMaxHealth;
 		globalVarables.playerMaxHealth = maxHealth;
+		heal(maxHealth - cur);
 		healthBar.SetMaxHealth(currentHealth);
+
 	}
+
+	private void AddOverallDamage (int percent)
+    {
+		globalVarables.increasingDamage += percent;
+    }
 
 
 

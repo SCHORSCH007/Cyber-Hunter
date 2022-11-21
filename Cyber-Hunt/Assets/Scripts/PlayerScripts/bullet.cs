@@ -37,8 +37,8 @@ public class bullet : MonoBehaviour
         EnemyHpScript enemy = hitInfo.GetComponent<EnemyHpScript>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
-            DamagePopUpScript.Create(enemy.transform.position, damage, false);
+            enemy.TakeDamage(damage * globalVarables.increasingDamage);
+            DamagePopUpScript.Create(enemy.transform.position, damage*globalVarables.increasingDamage, false);
             Destroy(gameObject);
         }    
     }

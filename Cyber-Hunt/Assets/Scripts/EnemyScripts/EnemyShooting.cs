@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    [SerializeField]
-    private bool canFire = true;
+    
     
     [SerializeField]
     private float _attackSpeed = 1f;

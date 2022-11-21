@@ -6,14 +6,11 @@ public class globalVarables : MonoBehaviour
 {
     //player
 
-    public static int playerMaxHealth = 5;
-    public static float increasingDamage;
+    public static int playerMaxHealth = 10;
+    public static int increasingDamage = 1;
 
     //Fähigkeiten
     public static int n = 5;
-    public static string[] abilityNames = new string[n];
-
-    public static bool[] abilityUnlocked = new bool[n];
 
     //Dash
 

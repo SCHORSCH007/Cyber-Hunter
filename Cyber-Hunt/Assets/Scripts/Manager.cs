@@ -60,8 +60,6 @@ public class Manager : MonoBehaviour
     }
     public void SwordButtonActivated(int bladenumber)
     {
-        Button currentb = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        currentb.interactable = false;
         switch (bladenumber)
         {
 
