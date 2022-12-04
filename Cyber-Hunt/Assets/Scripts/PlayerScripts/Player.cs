@@ -50,7 +50,22 @@ public class Player : MonoBehaviour
 			case PlayerSkills.SkillType.OverallDamage1:
 				AddOverallDamage(1);
 				break;
-			
+			case PlayerSkills.SkillType.OverallDamage2:
+				AddOverallDamage(1);
+				break;
+			case PlayerSkills.SkillType.OverallDamage3:
+				AddOverallDamage(1);
+				break;
+			case PlayerSkills.SkillType.OverallDamage4:
+				AddOverallDamage(1);
+				break;
+			case PlayerSkills.SkillType.OverallDamage5:
+				AddOverallDamage(1);
+				break;
+			case PlayerSkills.SkillType.OverallDamage6:
+				AddOverallDamage(1);
+				break;
+
 		}
     }
    
@@ -129,6 +144,5 @@ public class Player : MonoBehaviour
 			XP.moveToPlayer = false;
 		}
 	}
-
 }
 

@@ -9,19 +9,23 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField]
     private float _attackSpeed = 1f;
 
+    [SerializeField]
+    private float AttackRange = 0f;
+
     private Vector2 target;
 
     private float delay = 1f;
     //bullet Sin and Cos
     private float X;
     private float Y;
+    private GameObject _Player;
 
 
     private void Awake()
     {
-       
 
-     
+
+        _Player = GameObject.FindWithTag("Player");
         delay = Random.Range(1f, 3f);
         InvokeRepeating("Fire", delay, _attackSpeed);
 
@@ -30,19 +34,24 @@ public class EnemyShooting : MonoBehaviour
   
     private void Fire()
     {
-        X = Mathf.Cos((transform.rotation.z + 90 * Mathf.PI) / 180);
-        Y = Mathf.Sin((transform.rotation.z + 90 * Mathf.PI) / 180);
+        float dist = Vector3.Distance(_Player.transform.position, transform.position);
+        if (dist <= AttackRange)
+        {
 
-        target = new Vector2(X, Y);
 
-        Vector3 bulMoveVector = transform.forward;
-       
+            X = Mathf.Cos((transform.rotation.z + 90 * Mathf.PI) / 180);
+            Y = Mathf.Sin((transform.rotation.z + 90 * Mathf.PI) / 180);
 
-        GameObject bul = EnemyBulletPool.bulletPoolInstance.GetBullet();
-        bul.transform.position = transform.position;
-        bul.transform.rotation = transform.rotation;
-        bul.SetActive(true);
-        bul.GetComponent<EnemyBulletScript>().setMoveDirection(target);
-    
+            target = new Vector2(X, Y);
+
+            Vector3 bulMoveVector = transform.forward;
+
+
+            GameObject bul = EnemyBulletPool.bulletPoolInstance.GetBullet();
+            bul.transform.position = transform.position;
+            bul.transform.rotation = transform.rotation;
+            bul.SetActive(true);
+            bul.GetComponent<EnemyBulletScript>().setMoveDirection(target);
+        }
     }
 }

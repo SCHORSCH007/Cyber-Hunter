@@ -28,4 +28,8 @@ public class EnemyHpScript : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }

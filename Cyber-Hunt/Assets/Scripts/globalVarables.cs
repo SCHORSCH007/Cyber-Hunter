@@ -6,7 +6,7 @@ public class globalVarables : MonoBehaviour
 {
     //player
 
-    public static int playerMaxHealth = 10;
+    public static int playerMaxHealth = 1000;
     public static int increasingDamage = 1;
 
     //Fähigkeiten

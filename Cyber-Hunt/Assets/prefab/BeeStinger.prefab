@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8415803137910200406}
   - component: {fileID: 5038791991242417048}
-  - component: {fileID: 3205756167225793550}
+  - component: {fileID: 902591712205906252}
   m_Layer: 0
   m_Name: BeeStinger
   m_TagString: EnemyProj
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3205756167225793550
+--- !u!114 &902591712205906252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 2
   _Damage: 1
-  lifetime: 3
+  _RaycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  lifetime: 2
 --- !u!1 &9139401246189493219
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ TagManager:
   - EnemyProj
   - LevelUpMenu
   - ParticleSystemDash
+  - assets
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - back
   - player
-  - 
+  - Raycast
   - 
   - 
   - 

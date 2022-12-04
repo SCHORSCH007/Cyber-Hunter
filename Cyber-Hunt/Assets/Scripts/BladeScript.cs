@@ -14,8 +14,8 @@ public class BladeScript : MonoBehaviour
         EnemyHpScript enemy = hitInfo.GetComponent<EnemyHpScript>();
         if (enemy != null)
         {
-            enemy.TakeDamage(_Damage);
-            DamagePopUpScript.Create(enemy.transform.position, _Damage, false);
+            enemy.TakeDamage(_Damage* globalVarables.increasingDamage);
+            DamagePopUpScript.Create(enemy.transform.position, _Damage * globalVarables.increasingDamage, false);
         }
 
     }

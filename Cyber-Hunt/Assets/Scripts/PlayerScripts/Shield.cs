@@ -4,30 +4,54 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    int hP = 5;
-    [SerializeField] int maxHP = 5;
+    [SerializeField]
+    private int hP = 5;
 
+    [SerializeField] 
+    private int maxHP = 5;
 
+    [SerializeField] 
+    private int rechargeTime;
 
+    private Player _Player;
+    private Manager Manager;
+   
+
+  
     // Update is called once per frame
+    private void Start()
+    {
+        Manager = GameObject.FindWithTag("assets").GetComponent<Manager>();
+        _Player = GameObject.FindWithTag("Player").GetComponent<Player>();
+    }
     void Update()
     {
         if (gameObject != null) { 
         if (hP <= 0)
         {
+                Manager.BeginnShieldReset(rechargeTime);
             gameObject.SetActive(false);
         }
-
     }
+    }
+    public void DamageShield(int Damage)
+    {
+        if (Damage <= hP)
+        {
+            hP -= Damage;
+        }
+        else
+        {
+            int PlayerDamage = Damage - hP;
+            _Player.TakeDamage(PlayerDamage);
+            hP = 0;
+
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "EnemyProj")
-        {
-            EnemyBulletScript EB = collision.gameObject.GetComponent<EnemyBulletScript>();
-            hP -= EB.damage;
-            Destroy(collision.gameObject);
-        }
+   
+        
         EnemyHpScript ES = collision.gameObject.GetComponent<EnemyHpScript>();
         if (ES != null) 
         

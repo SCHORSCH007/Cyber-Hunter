@@ -14,6 +14,8 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject blade3;
     [SerializeField] private GameObject blade4;
 
+    [SerializeField] private GameObject Shield;
+
     private SpriteRenderer sp1;
     private SpriteRenderer sp2;
     private SpriteRenderer sp3;
@@ -27,6 +29,7 @@ public class Manager : MonoBehaviour
         sp2 = blade2.GetComponent<SpriteRenderer>();
         sp3 = blade3.GetComponent<SpriteRenderer>();
         sp4 = blade4.GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -54,8 +57,6 @@ public class Manager : MonoBehaviour
        
         _Healthbar.UpdateData();
         _Player.heal(10);
-
-
 
     }
     public void SwordButtonActivated(int bladenumber)
@@ -101,6 +102,20 @@ public class Manager : MonoBehaviour
         sp4.color = new Color(255, 0, 151);
 
 
+    }
+    public void ShieldEnabled()
+    {
+        Shield.SetActive(true);
+    }
+    public void BeginnShieldReset(int ResetTime)
+    {
+        StartCoroutine(ShieldReset(ResetTime));
+    }
+
+    IEnumerator ShieldReset(int Time)
+    {
+        yield return new WaitForSeconds(Time);
+        Shield.SetActive(true);
     }
 }
    
