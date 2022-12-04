@@ -258,11 +258,12 @@ GameObject:
   - component: {fileID: 9055563339025089634}
   - component: {fileID: 9055563339025089633}
   - component: {fileID: 9055563339025089635}
-  - component: {fileID: 9055563339025089646}
   - component: {fileID: 9055563339025089632}
   - component: {fileID: 9055563339025089645}
   - component: {fileID: 9055563339025089644}
-  - component: {fileID: 9055563339025089647}
+  - component: {fileID: -464677910423415602}
+  - component: {fileID: 8245657487336488360}
+  - component: {fileID: 884611825609484255}
   m_Layer: 0
   m_Name: Drohne
   m_TagString: Untagged
@@ -394,27 +395,6 @@ PolygonCollider2D:
       - {x: 0.1832359, y: -0.20240586}
       - {x: 0.18531552, y: -0.2961121}
       - {x: 0.295, y: -0.295}
---- !u!50 &9055563339025089646
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055563339025089639}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!95 &9055563339025089632
 Animator:
   serializedVersion: 4
@@ -449,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   drop: {fileID: 8367700457022477184, guid: 07aabed6f7c977341b90b6048162b11c, type: 3}
-  health: 0
+  health: 1
 --- !u!114 &9055563339025089644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +443,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
---- !u!114 &9055563339025089647
+--- !u!60 &-464677910423415602
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055563339025089639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.59, y: 0.59}
+    newSize: {x: 0.59, y: 0.59}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.29376772, y: -0.17950273}
+      - {x: 0.20850238, y: -0.18133482}
+      - {x: 0.10818703, y: -0.08849425}
+      - {x: 0.11035516, y: 0.080166705}
+      - {x: 0.21018182, y: 0.18156046}
+      - {x: 0.29376775, y: 0.18390986}
+      - {x: 0.295, y: 0.29732245}
+      - {x: 0.18395607, y: 0.29253548}
+      - {x: 0.18668444, y: 0.20752473}
+      - {x: 0.08537871, y: 0.10866666}
+      - {x: 0.0034630164, y: 0.102770284}
+      - {x: -0.08902003, y: 0.108346686}
+      - {x: -0.18533045, y: 0.20874314}
+      - {x: -0.18573004, y: 0.29560238}
+      - {x: -0.2947666, y: 0.29479256}
+      - {x: -0.29376766, y: 0.18964481}
+      - {x: -0.21268782, y: 0.18958741}
+      - {x: -0.10923991, y: 0.08721763}
+      - {x: -0.10789061, y: -0.08756017}
+      - {x: -0.20874304, y: -0.18210939}
+      - {x: -0.29368377, y: -0.18429956}
+      - {x: -0.295, y: -0.295}
+      - {x: -0.19141492, y: -0.29274523}
+      - {x: -0.18335292, y: -0.2079771}
+      - {x: -0.085218646, y: -0.10655544}
+      - {x: 0.0017623971, y: -0.10423147}
+      - {x: 0.079407275, y: -0.1079645}
+      - {x: 0.1832359, y: -0.20240586}
+      - {x: 0.18531552, y: -0.2961121}
+      - {x: 0.295, y: -0.295}
+--- !u!114 &8245657487336488360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,10 +507,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 9055563339025089639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 392f053b8713f184294c67e0061f0035, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f1b38461bbe23a4bbc1934e783d304d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
-  attackSpeed: 1
-  bullet: {fileID: 6979645128090173472, guid: c4cb7e651f315484687a829db4cdf2bb, type: 3}
-  bulletTransform: {fileID: 9055563337632987919}
+  _attackSpeed: 1
+  rocket: {fileID: 6979645128090173472, guid: c4cb7e651f315484687a829db4cdf2bb, type: 3}
+  AttackRange: 0
+--- !u!50 &884611825609484255
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055563339025089639}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

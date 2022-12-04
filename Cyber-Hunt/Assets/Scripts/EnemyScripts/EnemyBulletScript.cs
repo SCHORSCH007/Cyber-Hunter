@@ -20,7 +20,9 @@ public class EnemyBulletScript : MonoBehaviour
         get => _Damage;
         set => _Damage = value;
     }
+
     [SerializeField] private float lifetime;
+
     private GameObject _Player;
 
     
@@ -31,7 +33,7 @@ public class EnemyBulletScript : MonoBehaviour
     }
     private void OnEnable()
     {
-        Invoke("Destroy", lifetime);  
+        Invoke("Destroy", lifetime);
     }
 
     public void Update()

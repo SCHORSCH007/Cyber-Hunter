@@ -1,84 +1,79 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class RocketScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    public float force;
-    public int damage = 1;
-    private Transform player;
-    public float lifetime;
-    Player p;
-    private float startTime;
+    [SerializeField]
+    private float _moveSpeed;
+    [SerializeField]
+    private int damage = 1;
+    [SerializeField]
+    private LayerMask _RaycastLayerMask;
     private Vector3 movement;
+
+    [SerializeField]
+    private float lifetime;
+    private GameObject p;
+
+    [SerializeField]
     private float delay;
-    public float updatingDirection;
-    private float angle;
+    
+    
 
     void Start()
     {
-        p = GameObject.FindWithTag("Player").GetComponent<Player>();
-        player = GameObject.FindWithTag("Player").transform;
-
-        rb = GetComponent<Rigidbody2D>();
-        startTime = Time.time;
-
-        Vector3 direction = player.position - transform.position;
-        direction.Normalize();
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
-        float rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot - 90);
+        p = GameObject.FindWithTag("Player");      
+        Invoke("Destroy", lifetime);
+        InvokeRepeating("calculateNewMovement", 0, delay);
     }
 
 
     void Update()
     {
-        Vector3 direction = player.position - transform.position; 
-        direction.Normalize();
-        movement = direction;
-        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-    }
+
+        transform.Translate(-movement * _moveSpeed * Time.deltaTime);
 
 
-    private void FixedUpdate()
-    {
-        if (lifetime + startTime < Time.time)
+        // Raycast collision Detection
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, p.transform.position - transform.position, 0.01f, _RaycastLayerMask);
+
+        if (hit.collider != null)
         {
-            Destroy(gameObject);
-        }
-        else
-        {  
-            if (Time.time > delay)
+            // check if shield was hit
+            Shield s = hit.collider.gameObject.GetComponent<Shield>();
+            if (s != null)
             {
-                Vector3 direction = player.position - transform.position;
-                direction.Normalize();
-                rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
-
-
-                //rb.MovePosition((Vector3)transform.position + (movement * force * Time.deltaTime));
-                rb.rotation = angle - 90f;
-                delay = Time.time + updatingDirection;
+                s.DamageShield(damage);
             }
+            // if not check if player was hit
+            else
+            {
+                Player p = hit.collider.gameObject.GetComponentInParent<Player>();
+                if (p != null)
+                {
+                    p.TakeDamage(damage);
+                }
+            }
+
+            Destroy();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo)
+
+    private void Destroy()
     {
-
-
-        XpPickUp x = hitInfo.GetComponent<XpPickUp>();
-
-        if (x != null)
-        {
-            p.TakeDamage(damage);
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
+    private void calculateNewMovement()
+    {
+        movement =  transform.position - p.transform.position;
+        movement.Normalize();
+            
+        float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+        Debug.Log(angle);
+        //this.transform.rotation.Set(0, 0, angle + 90, 0);
+        this.transform.localEulerAngles = new Vector3(0, 0, angle + 90);
 
-
-
-
-
+    }
 }

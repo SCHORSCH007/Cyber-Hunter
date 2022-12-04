@@ -43,12 +43,12 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x < 0)
         {
             isFacingRight = false;
-            Debug.Log("is facing right" + isFacingRight);
+            
         }
         else if (movement.x > 0)
         {
             isFacingRight = true;
-            Debug.Log("is facing right" + isFacingRight);
+            
         }
         
     }

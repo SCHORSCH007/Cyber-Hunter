@@ -17,4 +17,4 @@ MonoBehaviour:
   activeTime: 0.35
   dashVelocity: 30
   duration: 4
-  delay: 3
+  delay: 0

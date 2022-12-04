@@ -97,7 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b91251775091a3448f616e38d16e1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 2
+  _moveSpeed: 2
   damage: 1
-  lifetime: 3
-  updatingDirection: 0.5
+  _RaycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  lifetime: 7
+  delay: 1.5
