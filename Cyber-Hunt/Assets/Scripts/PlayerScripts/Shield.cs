@@ -15,60 +15,60 @@ public class Shield : MonoBehaviour
 
     private Player _Player;
     private Manager Manager;
-   
 
-  
+
+
     // Update is called once per frame
     private void Start()
     {
         Manager = GameObject.FindWithTag("assets").GetComponent<Manager>();
         _Player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
+
     void Update()
     {
-        if (gameObject != null) { 
-        if (hP <= 0)
+        if (gameObject != null)
         {
+            if (hP <= 0)
+            {
                 Manager.BeginnShieldReset(rechargeTime);
-            gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
         }
     }
-    }
-    public void DamageShield(int Damage)
+
+    public void DamageShield(int damage)
     {
-        if (Damage <= hP)
+        if (damage <= hP)
         {
-            hP -= Damage;
+            hP -= damage;
         }
         else
         {
-            int PlayerDamage = Damage - hP;
-            _Player.TakeDamage(PlayerDamage);
+            int playerDamage = damage - hP;
+            _Player.TakeDamage(playerDamage);
             hP = 0;
-
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-   
-        
-        EnemyHpScript ES = collision.gameObject.GetComponent<EnemyHpScript>();
-        if (ES != null) 
-        
-        { 
-            if (ES.health >= hP)
+        EnemyHpScript enemyHpScript = collision.gameObject.GetComponent<EnemyHpScript>();
+        if (enemyHpScript != null)
+        {
+            if (enemyHpScript.health >= hP)
             {
-            ES.TakeDamage(hP);
-            hP = 0;
+                enemyHpScript.TakeDamage(hP);
+                hP = 0;
             }
             else
             {
-            hP -= ES.health;
-            ES.TakeDamage(ES.health);
+                hP -= enemyHpScript.health;
+                enemyHpScript.TakeDamage(enemyHpScript.health);
             }
         }
     }
-    
+
     private void OnEnable()
     {
         hP = maxHP;

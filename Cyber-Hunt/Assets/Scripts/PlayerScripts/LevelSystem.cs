@@ -1,56 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class LevelSystem : MonoBehaviour
 {
-     
     [SerializeField] private float requiredXP;
     [SerializeField] private GameObject mesh;
-    [SerializeField] private TextMeshProUGUI Skillpoints;
-    
-    private TextMeshProUGUI TextMesh;
+    [SerializeField] public TextMeshProUGUI skillpoints;
+
+    private TextMeshProUGUI textMesh;
     private float level;
     private float currentXP;
-    private int _Skillp = 0;
+    private GameObject levelUpMenu;
 
-    private GameObject LevelUpMenu;
-   
-    
     [Header("UI")]
-
     [SerializeField] private Image frontXpBar;
 
-   
     private void Awake()
     {
-        LevelUpMenu = GameObject.FindWithTag("LevelUpMenu");
-        GameObject Level = GameObject.FindWithTag("Level");
-        if(Level != null)
+        
+        levelUpMenu = GameObject.FindWithTag("LevelUpMenu");
+        GameObject level = GameObject.FindWithTag("Level");
+        if (level != null)
         {
-          TextMesh =  Level.GetComponent<TextMeshProUGUI>();
+            textMesh = level.GetComponent<TextMeshProUGUI>();
         }
         else
         {
             Debug.Log("null");
         }
-        if(mesh == null)
+        if (mesh == null)
         {
             Debug.Log("nullmesh");
         }
     }
+
     void Start()
     {
         frontXpBar.fillAmount = currentXP / requiredXP;
         level = 1f;
-       
-
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateXpUI();
@@ -59,36 +50,42 @@ public class LevelSystem : MonoBehaviour
             GainExperienceFlatRate(20);
         }
     }
+
     public void UpdateXpUI()
     {
         float xpFraction = currentXP / requiredXP;
-        float FXP = frontXpBar.fillAmount;
+        float fXP = frontXpBar.fillAmount;
 
-        if(FXP < xpFraction)
+        if (fXP < xpFraction)
         {
-          frontXpBar.fillAmount = xpFraction;
+            frontXpBar.fillAmount = xpFraction;
         }
-        if(currentXP >= requiredXP)
+        if (currentXP >= requiredXP)
         {
             frontXpBar.fillAmount = 0f;
-            level = level +1;
-            _Skillp++;
-            Skillpoints.SetText(_Skillp.ToString());
+            level = level + 1;
+            IncreaseSkillPoints(1);
             currentXP = 0f;
-            LevelUpMenu.SetActive(true);
+            levelUpMenu.SetActive(true);
+            UpdateLevelUpScreen();
             Time.timeScale = 0f;
 
-            TextMesh.SetText(level.ToString());
-            
-
+            textMesh.SetText(level.ToString());
         }
     }
-
-
+    private void IncreaseSkillPoints(int amount)
+    {
+        globalVarables.SkillPoints += amount;
+        skillpoints.SetText(globalVarables.SkillPoints.ToString());
+    }
+    private void UpdateLevelUpScreen()
+    {
+        UI_SkillTree tree = levelUpMenu.GetComponent<UI_SkillTree>();
+        tree.UpdateVisuals();
+    }
 
     public void GainExperienceFlatRate(float xpGained)
     {
         currentXP += xpGained;
-        
     }
 }

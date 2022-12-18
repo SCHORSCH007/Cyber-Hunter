@@ -1,4 +1,4 @@
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UI_SkillTree : MonoBehaviour
 {
     private PlayerSkills playerSkills;
+    private LevelSystem levelSystem;
     private List<SkillButton> skillButtonList;
     private Manager m;
     [SerializeField] private Material locked;
@@ -20,42 +21,42 @@ public class UI_SkillTree : MonoBehaviour
 
         m = GameObject.FindWithTag("assets").GetComponent<Manager>();
         playerSkills = new PlayerSkills();
+        levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
 
         _SkillObjects[0].GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade1);
+        {            
             if (playerSkills.CanUnlock(PlayerSkills.SkillType.CyberBlade1))
             {
                 m.SwordButtonActivated(1);
             }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade1);
             UpdateVisuals();
-            Debug.Log("geht");
         };
         _SkillObjects[1].GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade2);
+        {                   
             if (playerSkills.CanUnlock(PlayerSkills.SkillType.CyberBlade2))
             {
                 m.SwordButtonActivated(2); 
             }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade2);
             UpdateVisuals();
         };
         _SkillObjects[2].GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade3);
+        {          
             if (playerSkills.CanUnlock(PlayerSkills.SkillType.CyberBlade3))
             {
                 m.SwordButtonActivated(3);
             }
             UpdateVisuals();
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade3);
         };
         _SkillObjects[3].GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade4);
+        {           
             if (playerSkills.CanUnlock(PlayerSkills.SkillType.CyberBlade4))
             {
                 m.SwordButtonActivated(4);
             }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.CyberBlade4);
             UpdateVisuals();
         };
 
@@ -132,9 +133,6 @@ public class UI_SkillTree : MonoBehaviour
             UpdateVisuals();
         };
 
-
-
-
     }
 
 
@@ -161,15 +159,17 @@ public class UI_SkillTree : MonoBehaviour
         UpdateVisuals(); 
     }
 
-    private void UpdateVisuals()
+    public void UpdateVisuals()
     {
-        foreach(SkillButton skillButton in skillButtonList)
+        levelSystem.skillpoints.SetText(globalVarables.SkillPoints.ToString());
+        foreach (SkillButton skillButton in skillButtonList)
         {
             skillButton.UpdateVisuals();
         }
        
     }
 
+   
 
     private class SkillButton
     {
@@ -189,17 +189,13 @@ public class UI_SkillTree : MonoBehaviour
             this.locked = locked;
             this.unlocked = unlocked;
             this.normal = normal;
-            this.image = image;
-
-
-            
-               
-            
+            this.image = image;                        
         }
 
 
         public void UpdateVisuals()
         {
+            
             if (playerSkills.IsSkillUnlocked(skillType))
             {
                 image.material = unlocked;
