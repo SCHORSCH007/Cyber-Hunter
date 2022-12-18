@@ -118,6 +118,8 @@ public class PlayerSkills
     {
         switch(skillType)
         {
+
+            //Blade upgrade costs
             case SkillType.CyberBlade1: return 1;
             case SkillType.CyberBlade2: return 3;
             case SkillType.CyberBlade3: return 6;
@@ -130,12 +132,15 @@ public class PlayerSkills
             case SkillType.Health4: return 7;
             case SkillType.Health5: return 8;
 
+            //Damage upgrade costs
             case SkillType.OverallDamage1: return 1;
             case SkillType.OverallDamage2: return 3;
             case SkillType.OverallDamage3: return 4;
             case SkillType.OverallDamage4: return 5;
             case SkillType.OverallDamage5: return 5;
             case SkillType.OverallDamage6: return 6;
+
+            case SkillType.Shield: return 3;
 
             default: return 0;
         }

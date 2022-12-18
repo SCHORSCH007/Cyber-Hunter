@@ -127,9 +127,10 @@ public class UI_SkillTree : MonoBehaviour
             
             if (playerSkills.CanUnlock(PlayerSkills.SkillType.Shield) && playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Shield) == false)
             {
-                playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Shield);
+                
                 m.ShieldEnabled();
             }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Shield);
             UpdateVisuals();
         };
 
