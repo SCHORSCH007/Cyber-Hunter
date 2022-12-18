@@ -6194,7 +6194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733356845}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
@@ -7242,7 +7242,7 @@ GameObject:
   - component: {fileID: 800561730}
   - component: {fileID: 800561729}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Skilpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7857,7 +7857,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1144343845}
   m_HandleRect: {fileID: 1144343844}
   m_Direction: 2
-  m_Value: 1.0035541
+  m_Value: 1.0035542
   m_Size: 0.31543398
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -17180,7 +17180,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.05
+  m_fontSize: 49.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -19220,7 +19220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredXP: 100
   mesh: {fileID: 293312521}
-  Skillpoints: {fileID: 800561729}
+  skillpoints: {fileID: 800561729}
   frontXpBar: {fileID: 139328761}
 --- !u!114 &1672019245
 MonoBehaviour:
