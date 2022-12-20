@@ -6,7 +6,10 @@ public class EnemyHpScript : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] GameObject drop;
+    [SerializeField] GameObject MalewareEffect;
     public int health;
+    private bool Maleware;
+    
 
     private void Start()
     {
@@ -14,7 +17,7 @@ public class EnemyHpScript : MonoBehaviour
     }
     public void TakeDamage(int Damage)
     {
-        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 151);
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(100, 0, 151);
         StartCoroutine(colorFeedback());
         health -= Damage;
         if(health <= 0)
@@ -26,10 +29,46 @@ public class EnemyHpScript : MonoBehaviour
     IEnumerator colorFeedback()
     {
         yield return new WaitForSeconds(0.2f);
+        if (Maleware)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(57f/255f,200f/255f,66f/255f);
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+        }
+    }
+    IEnumerator MalewareLoop(int Damage,float Duration)
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(57f/255f, 200f/255f, 66f/255f);
+        Instantiate(MalewareEffect, gameObject.transform);
+
+        EffectLifetime Lifetime = GetComponentInChildren<EffectLifetime>();
+        Lifetime.EndInSeconds(Duration);
+        int _damage = Damage;
+        float timeLeft = Duration;
+
+        while(timeLeft > 0.0f)
+        {
+            TakeDamage(1);
+            timeLeft -= Time.deltaTime;
+            yield return new WaitForSeconds(Duration / Damage);
+        }
+        Maleware = false;
+        yield return null;
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
     public int GetMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void AplyMaleware()
+    {
+        if (!Maleware)
+        {
+            Maleware = true;
+            StartCoroutine(MalewareLoop(3, 9));
+        }
     }
 }
