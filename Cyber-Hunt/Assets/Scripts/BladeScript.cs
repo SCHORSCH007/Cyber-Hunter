@@ -15,7 +15,7 @@ public class BladeScript : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(_Damage* globalVarables.increasingDamage);
-            DamagePopUpScript.Create(enemy.transform.position, _Damage * globalVarables.increasingDamage, false);
+            DamagePopUpScript.Create(enemy.transform.position, _Damage * globalVarables.increasingDamage, false, new Color(26f / 255f, 270f / 255f, 107f / 255f));
         }
 
     }

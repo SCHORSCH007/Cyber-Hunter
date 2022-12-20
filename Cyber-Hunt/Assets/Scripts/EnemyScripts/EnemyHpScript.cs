@@ -51,6 +51,7 @@ public class EnemyHpScript : MonoBehaviour
         while(timeLeft > 0.0f)
         {
             TakeDamage(1);
+            DamagePopUpScript.Create(transform.position,1, false, new Color(57f / 255f, 200f / 255f, 66f / 255f));
             timeLeft -= Time.deltaTime;
             yield return new WaitForSeconds(Duration / Damage);
         }

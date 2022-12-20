@@ -38,7 +38,7 @@ public class bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage * globalVarables.increasingDamage);
-            DamagePopUpScript.Create(enemy.transform.position, damage*globalVarables.increasingDamage, false);
+            DamagePopUpScript.Create(enemy.transform.position, damage*globalVarables.increasingDamage, false,new Color(26f/255f,170f/255f,207f/255f));
             Destroy(gameObject);
         }    
     }

@@ -13,12 +13,13 @@ public class DamagePopUpScript : MonoBehaviour
     
     
     //method to initiate a new damage Popup
-    public static DamagePopUpScript Create(Vector3 position, int damageAmount ,bool isCrit)
+    public static DamagePopUpScript Create(Vector3 position, int damageAmount ,bool isCrit,Color color)
     {
         //creates the instance with the prefab safed in the GameAssets script
         Transform DamagePopUpTransform = Instantiate(GameAssets.i.pfDamagePopup, position, Quaternion.identity);
         DamagePopUpScript damagePopUp = DamagePopUpTransform.GetComponent<DamagePopUpScript>();
-        damagePopUp.Setup(damageAmount,isCrit);
+        
+        damagePopUp.Setup(damageAmount,isCrit,color);
 
         return damagePopUp;
     }
@@ -29,19 +30,20 @@ public class DamagePopUpScript : MonoBehaviour
         textMesh = transform.GetComponent<TextMeshPro>();
     }
     //define the Text of the popup
-    public void Setup(int damageAmount, bool isCrit)
+    public void Setup(int damageAmount, bool isCrit,Color color)
     {
         textMesh.SetText(damageAmount.ToString());
         if (!isCrit)
         {
-            textMesh.fontSize = 1;
-            TextColor = textMesh.color;
+            textMesh.fontSize = 1;          
+            TextColor = color;
+            textMesh.color = TextColor;
             disappearTimer = 1f;
         }
         else
         {
             textMesh.fontSize = 2;
-            textMesh.color = CritColor;
+            textMesh.color = color;
             TextColor = CritColor;
             disappearTimer = 1f;
         }
