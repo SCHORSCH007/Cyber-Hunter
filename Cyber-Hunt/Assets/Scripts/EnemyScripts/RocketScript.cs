@@ -25,14 +25,16 @@ public class RocketScript : MonoBehaviour
         p = GameObject.FindWithTag("Player");      
         Invoke("Destroy", lifetime);
         InvokeRepeating("calculateNewMovement", 0, delay);
+        
+        
     }
 
 
     void Update()
     {
-
-        transform.Translate(-movement * _moveSpeed * Time.deltaTime);
-
+       
+        Vector3 movementReal = movement * _moveSpeed * Time.deltaTime;
+        transform.position = transform.position + movementReal;
 
         // Raycast collision Detection
         RaycastHit2D hit = Physics2D.Raycast(transform.position, p.transform.position - transform.position, 0.01f, _RaycastLayerMask);
@@ -65,15 +67,17 @@ public class RocketScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void calculateNewMovement()
-    {
-        movement =  transform.position - p.transform.position;
-        movement.Normalize();
-            
-        float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
-        //this.transform.rotation.Set(0, 0, angle + 90, 0);
-        this.transform.localEulerAngles = new Vector3(0, 0, angle + 90);
+    
 
+    public void calculateNewMovement()
+    {
+        Vector3 direction = p.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        transform.rotation = rotation;
+
+        //Vector3 direction2 = p.transform.position - transform.position;
+        movement = direction.normalized;
+        
     }
 }

@@ -102,5 +102,5 @@ MonoBehaviour:
   _RaycastLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  lifetime: 7
+  lifetime: 20
   delay: 1.5
