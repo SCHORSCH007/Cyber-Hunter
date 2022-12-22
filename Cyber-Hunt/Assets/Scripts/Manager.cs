@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,6 +14,8 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject blade4;
 
     [SerializeField] private GameObject Shield;
+
+    [SerializeField] private GameObject MalewareEmitter;
 
     private SpriteRenderer sp1;
     private SpriteRenderer sp2;
@@ -116,6 +117,11 @@ public class Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(Time);
         Shield.SetActive(true);
+    }
+
+    public void MalewareEnabled()
+    {
+        MalewareEmitter.SetActive(true);
     }
 }
    

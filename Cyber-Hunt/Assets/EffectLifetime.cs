@@ -9,6 +9,7 @@ public class EffectLifetime : MonoBehaviour
     public void EndInSeconds(float Lifetime)
     {
         Invoke("Destroy", Lifetime);
+        
     }
     private void Destroy()
     {

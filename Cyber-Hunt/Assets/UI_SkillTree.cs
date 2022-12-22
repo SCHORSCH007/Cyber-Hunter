@@ -134,6 +134,21 @@ public class UI_SkillTree : MonoBehaviour
             UpdateVisuals();
         };
 
+        //Maleware
+
+        _SkillObjects[16].GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            if (!playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Maleware))
+            {
+                if (playerSkills.CanUnlock(PlayerSkills.SkillType.Maleware))
+                {
+                    m.MalewareEnabled();
+                    playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Maleware);
+                }
+            }
+            
+            UpdateVisuals();
+        };
     }
 
 
@@ -156,6 +171,7 @@ public class UI_SkillTree : MonoBehaviour
         skillButtonList.Add(new SkillButton(_SkillObjects[13], playerSkills, PlayerSkills.SkillType.OverallDamage5, locked, unlocked, normal, _SkillObjects[13].GetComponent<Image>()));
         skillButtonList.Add(new SkillButton(_SkillObjects[14], playerSkills, PlayerSkills.SkillType.OverallDamage6, locked, unlocked, normal, _SkillObjects[14].GetComponent<Image>()));
         skillButtonList.Add(new SkillButton(_SkillObjects[15], playerSkills, PlayerSkills.SkillType.Shield, locked, unlocked, normal, _SkillObjects[15].GetComponent<Image>()));
+        skillButtonList.Add(new SkillButton(_SkillObjects[16], playerSkills, PlayerSkills.SkillType.Maleware, locked, unlocked, normal, _SkillObjects[16].GetComponent<Image>()));
         this.playerSkills = playerSkills;
         UpdateVisuals(); 
     }

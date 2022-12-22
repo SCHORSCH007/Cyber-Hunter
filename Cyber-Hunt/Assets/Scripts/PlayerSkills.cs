@@ -28,6 +28,8 @@ public class PlayerSkills
 
         Shield,
 
+        Maleware,
+
         Health1,
         Health2,
         Health3,
@@ -83,7 +85,14 @@ public class PlayerSkills
         }
         else
         {
-            return true;
+            if (GetSkillCost(skillType) <= globalVarables.SkillPoints)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
@@ -141,6 +150,8 @@ public class PlayerSkills
             case SkillType.OverallDamage6: return 6;
 
             case SkillType.Shield: return 3;
+
+            case SkillType.Maleware: return 3;
 
             default: return 0;
         }
