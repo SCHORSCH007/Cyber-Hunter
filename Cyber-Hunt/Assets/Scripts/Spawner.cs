@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
 
     private double accumulateWeights;
     private System.Random rand = new System.Random();
+    private int EnemyAmount = 0;
 
     private void Awake()
     {
@@ -29,6 +30,14 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         Spawn();
+    }
+
+    private void Update()
+    {
+        if(EnemyAmount <= _maxEnemies/10)
+        {
+            Spawn();
+        }
     }
 
     private void SpawnRandomEnemy(Vector2 position)
@@ -41,7 +50,7 @@ public class Spawner : MonoBehaviour
    
     private void Spawn()
     {
-        for(int i = 0;i< _maxEnemies; i++)
+        for(EnemyAmount = 0;EnemyAmount< _maxEnemies; EnemyAmount++)
         {
             SpawnRandomEnemy(new Vector2(Random.Range(-6f, 6f), Random.Range(-8f, 8f)));
         }
@@ -69,7 +78,17 @@ public class Spawner : MonoBehaviour
         }
     }
     
-    
+    public void ReduceEnemys(int Amount)
+    {
+        if (EnemyAmount >= Amount)
+        {
+            EnemyAmount -= Amount;
+        }
+        else
+        {
+            Debug.Log("Not enough enemys remaining");
+        }
+    }
     
     
     

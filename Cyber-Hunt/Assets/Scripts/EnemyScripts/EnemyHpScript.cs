@@ -9,11 +9,13 @@ public class EnemyHpScript : MonoBehaviour
     [SerializeField] GameObject MalewareEffect;
     public int health;
     private bool Maleware;
+    private Spawner spawn;
     
 
     private void Start()
     {
         health = maxHealth;
+        spawn = GameObject.FindWithTag("assets").GetComponent<Spawner>();
     }
     public void TakeDamage(int Damage)
     {
@@ -24,6 +26,8 @@ public class EnemyHpScript : MonoBehaviour
         {
             Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            spawn.ReduceEnemys(1);
+
         }               
     }
     IEnumerator colorFeedback()
