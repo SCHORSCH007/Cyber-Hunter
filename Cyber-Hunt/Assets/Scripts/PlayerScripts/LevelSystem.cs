@@ -8,6 +8,7 @@ public class LevelSystem : MonoBehaviour
     [SerializeField] private float requiredXP;
     [SerializeField] private GameObject mesh;
     [SerializeField] public TextMeshProUGUI skillpoints;
+    [SerializeField] private GameObject LevelUpWings;
 
     private TextMeshProUGUI textMesh;
     private float level;
@@ -66,10 +67,8 @@ public class LevelSystem : MonoBehaviour
             level = level + 1;
             IncreaseSkillPoints(1);
             currentXP = 0f;
-            levelUpMenu.SetActive(true);
+            LevelUpWings.SetActive(true);            
             UpdateLevelUpScreen();
-            Time.timeScale = 0f;
-
             textMesh.SetText(level.ToString());
         }
     }
@@ -88,4 +87,5 @@ public class LevelSystem : MonoBehaviour
     {
         currentXP += xpGained;
     }
+
 }

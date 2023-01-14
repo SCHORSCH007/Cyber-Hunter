@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyHpScript : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] GameObject drop;
     [SerializeField] GameObject MalewareEffect;
+    [SerializeField] private TextMeshProUGUI Kills;
     public int health;
     private bool Maleware;
     private Spawner spawn;
     
+    
 
     private void Start()
     {
+        Kills = GameObject.FindWithTag("Killcount").GetComponent<TextMeshProUGUI>();
         health = maxHealth;
         spawn = GameObject.FindWithTag("assets").GetComponent<Spawner>();
     }
@@ -27,6 +31,9 @@ public class EnemyHpScript : MonoBehaviour
             Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
             spawn.ReduceEnemys(1);
+            globalVarables.kills++;
+            Kills.SetText(globalVarables.kills.ToString());
+           
 
         }               
     }

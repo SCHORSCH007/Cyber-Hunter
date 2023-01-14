@@ -17,6 +17,10 @@ public class Manager : MonoBehaviour
 
     [SerializeField] private GameObject MalewareEmitter;
 
+    [SerializeField] private ActivateWings Wings;
+
+  
+
     private SpriteRenderer sp1;
     private SpriteRenderer sp2;
     private SpriteRenderer sp3;
@@ -45,7 +49,9 @@ public class Manager : MonoBehaviour
     }
     public void Resume()
     {
+        Wings.ResetWings();
         GameObject.FindWithTag("LevelUpMenu").SetActive(false);
+        
         Time.timeScale = 1f;
     }
     public void HealthButtonPressed()

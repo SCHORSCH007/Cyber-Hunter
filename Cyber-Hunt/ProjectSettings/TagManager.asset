@@ -12,6 +12,7 @@ TagManager:
   - ParticleSystemDash
   - assets
   - Malware
+  - Killcount
   layers:
   - Default
   - TransparentFX
