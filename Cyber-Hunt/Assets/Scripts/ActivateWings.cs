@@ -13,6 +13,9 @@ public class ActivateWings : MonoBehaviour
     private ParticleSystem Sparks_R;
     [SerializeField]
     private ParticleSystem Sparks_L;
+    [SerializeField]
+    private GameObject Impulse;
+    [SerializeField] GameObject Player;
  
 
     public void ActivateWings1()
@@ -27,6 +30,8 @@ public class ActivateWings : MonoBehaviour
         Afterwings[3].SetActive(true);
         Sparks_R.Emit(30);
         Sparks_L.Emit(30);
+        Player.GetComponent<Rigidbody2D>().mass = 1000;
+        Impulse.SetActive(true);
     }
 
     public void ActivateWings3()
@@ -50,6 +55,7 @@ public class ActivateWings : MonoBehaviour
             Afterwings[i].SetActive(false);
         }
         Afterwings[6].SetActive(false);
+        Player.GetComponent<Rigidbody2D>().mass = 1;
     }
     
 
