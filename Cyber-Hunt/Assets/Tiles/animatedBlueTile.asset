@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: animatedBlueTile
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -1321937583, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: -1938257750, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: -98743356, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: -895459227, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: 1735633607, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: 1139872548, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: -50474429, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: -812915307, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: -1469480432, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: 1298330825, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: 324541746, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  - {fileID: 1451041124, guid: 60d57474eae7d4748a3bc23a2da6d1fa, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

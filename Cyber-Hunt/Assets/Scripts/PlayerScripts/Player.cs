@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
 	}
 	public void heal(int heal)
     {
-		currentHealth += heal;
+		currentHealth = currentHealth + heal;
 		healthBar.SetHealth(currentHealth);
 		hp.SetText(currentHealth.ToString());
 	}

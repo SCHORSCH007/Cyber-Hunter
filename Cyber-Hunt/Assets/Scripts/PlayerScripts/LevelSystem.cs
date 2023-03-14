@@ -6,6 +6,8 @@ using TMPro;
 public class LevelSystem : MonoBehaviour
 {
     [SerializeField] private float requiredXP;
+    [SerializeField] private float vorFaktorXpfunction;
+    [SerializeField] private float AdditionskonstXpFunction;
     [SerializeField] private GameObject mesh;
     [SerializeField] public TextMeshProUGUI skillpoints;
     [SerializeField] private GameObject LevelUpWings;
@@ -39,8 +41,10 @@ public class LevelSystem : MonoBehaviour
 
     void Start()
     {
-        frontXpBar.fillAmount = currentXP / requiredXP;
         level = 1f;
+        calcNewRequiredXP();
+        frontXpBar.fillAmount = currentXP / requiredXP;
+        
     }
 
     void Update()
@@ -63,6 +67,7 @@ public class LevelSystem : MonoBehaviour
         }
         if (currentXP >= requiredXP)
         {
+            calcNewRequiredXP();
             frontXpBar.fillAmount = 0f;
             level = level + 1;
             IncreaseSkillPoints(1);
@@ -72,6 +77,15 @@ public class LevelSystem : MonoBehaviour
             textMesh.SetText(level.ToString());
         }
     }
+
+    public void calcNewRequiredXP()
+    {
+        float current = level * level;
+        current = current * vorFaktorXpfunction;
+        current = current + AdditionskonstXpFunction;
+        requiredXP = current;
+    }
+    
     private void IncreaseSkillPoints(int amount)
     {
         globalVarables.SkillPoints += amount;
