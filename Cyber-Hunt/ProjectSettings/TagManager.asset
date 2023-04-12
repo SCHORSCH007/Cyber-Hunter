@@ -13,6 +13,7 @@ TagManager:
   - assets
   - Malware
   - Killcount
+  - BossDrone
   layers:
   - Default
   - TransparentFX

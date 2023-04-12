@@ -17,15 +17,27 @@ public class RocketScript : MonoBehaviour
 
     [SerializeField]
     private float delay;
-    
-    
+
+    [SerializeField]
+    private float InitialDelay = 0f;
+
+    private GameObject parent;
+
 
     void Start()
     {
+        parent = GameObject.FindWithTag("BossDrone");
+        Debug.Log(parent.name);
         p = GameObject.FindWithTag("Player");      
         Invoke("Destroy", lifetime);
-        InvokeRepeating("calculateNewMovement", 0, delay);
-        
+        if (parent != null)
+        {
+            Invoke("initialCalculation", 0.01f);
+        }
+        else
+        {
+            InvokeRepeating("calculateNewMovement", 0, delay);
+        }
         
     }
 
@@ -80,4 +92,19 @@ public class RocketScript : MonoBehaviour
         movement = direction.normalized;
         
     }
+    public void initialCalculation()
+    {
+        InvokeRepeating("calculateNewMovement", InitialDelay, delay);
+        
+       
+       
+        Quaternion rotation = parent.transform.rotation;
+        transform.rotation = rotation;
+        Vector2 direction = transform.up;
+
+        //Vector3 direction2 = p.transform.position - transform.position;
+        movement = direction.normalized;
+        
+    }
 }
+

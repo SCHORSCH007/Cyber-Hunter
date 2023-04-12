@@ -9,6 +9,7 @@ public class EnemyHpScript : MonoBehaviour
     [SerializeField] GameObject drop;
     [SerializeField] GameObject MalewareEffect;
     [SerializeField] private TextMeshProUGUI Kills;
+    [SerializeField] HealthBar _healtBar;
     public int health;
     private bool Maleware;
     private Spawner spawn;
@@ -20,13 +21,21 @@ public class EnemyHpScript : MonoBehaviour
         Kills = GameObject.FindWithTag("Killcount").GetComponent<TextMeshProUGUI>();
         health = maxHealth;
         spawn = GameObject.FindWithTag("assets").GetComponent<Spawner>();
+        if(_healtBar!= null)
+        {
+            _healtBar.SetMaxHealth(maxHealth);
+        }
     }
     public void TakeDamage(int Damage)
     {
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(100, 0, 151);
         StartCoroutine(colorFeedback());
         health -= Damage;
-        if(health <= 0)
+        if (_healtBar != null)
+        {
+            _healtBar.SetHealth(health);
+        }
+        if (health <= 0)
         {
             Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);

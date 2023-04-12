@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 [System.Serializable]
@@ -11,6 +10,14 @@ public class Enemy
     [Range(0, 100f)] public float Chance = 100f;
 
     [HideInInspector] public double _weight;
+
+}
+public class Boss
+{
+    public string Name;
+
+    public GameObject prefab;
+
 
 }
 public class Spawner : MonoBehaviour
@@ -89,9 +96,19 @@ public class Spawner : MonoBehaviour
             Debug.Log("Not enough enemys remaining");
         }
     }
-    
-    
-    
- 
-    
+    public void SpawnSpiderBoss(int Health)
+    {
+
+    }
+    public void SpawnBeeBoss(int Health)
+    {
+
+    }
+    public void SpawnDroneBoss(int Health)
+    {
+
+    }
+
+
+
 }

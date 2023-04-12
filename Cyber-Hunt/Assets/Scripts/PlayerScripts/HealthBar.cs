@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,6 +14,10 @@ public class HealthBar : MonoBehaviour
 	{
 		slider.maxValue = health;
 		slider.value = health;
+        if (hp != null)
+        {
+			hp.SetText(health.ToString());
+        }
 
 		fill.color = gradient.Evaluate(1f);
 	}
@@ -22,7 +25,10 @@ public class HealthBar : MonoBehaviour
 	public void SetHealth(int health)
 	{
 		slider.value = health;
-
+		if (hp != null)
+		{
+			hp.SetText(health.ToString());
+		}
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
 	public void UpdateData()

@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private Transform player;
+    private bool paused;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,14 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle + 90;
-        direction.Normalize();
-        movement = direction;
+        if (!paused)
+        {
+            Vector3 direction = player.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rb.rotation = angle + 90;
+            direction.Normalize();
+            movement = direction;
+        }
     }
     private void FixedUpdate()
     {
@@ -34,5 +38,10 @@ public class EnemyScript : MonoBehaviour
     {
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));        
     }
+    public void pause(bool confirm)
+    {
+        paused = confirm;
+    }
+   
 }
 
