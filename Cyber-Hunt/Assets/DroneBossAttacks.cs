@@ -62,4 +62,8 @@ public class DroneBossAttacks : MonoBehaviour
         gameObject.GetComponent<EnemyScript>().pause(false);
         rotation = false;
     }
+    private void OnDestroy()
+    {
+        globalVarables.Bossfight = false;
+    }
 }

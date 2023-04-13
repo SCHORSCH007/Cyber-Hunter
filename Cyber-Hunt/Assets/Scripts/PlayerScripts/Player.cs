@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 		LevelUpMenu = GameObject.FindWithTag("LevelUpMenu");
 		currentHealth = globalVarables.playerMaxHealth;
 		playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
+		globalVarables.Player = gameObject;
 	}
 
 	private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)

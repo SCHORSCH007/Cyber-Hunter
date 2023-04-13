@@ -13,6 +13,7 @@ public class RocketScript : MonoBehaviour
 
     [SerializeField]
     private float lifetime;
+ 
     private GameObject p;
 
     [SerializeField]
@@ -24,13 +25,18 @@ public class RocketScript : MonoBehaviour
     private GameObject parent;
 
 
+    private void Awake()
+    {
+        p = globalVarables.Player;
+        parent = GameObject.FindWithTag("BossDrone");
+        
+    }
     void Start()
     {
-        parent = GameObject.FindWithTag("BossDrone");
-        Debug.Log(parent.name);
-        p = GameObject.FindWithTag("Player");      
+       
+        
         Invoke("Destroy", lifetime);
-        if (parent != null)
+        if (InitialDelay > 0f)
         {
             Invoke("initialCalculation", 0.01f);
         }
@@ -47,6 +53,7 @@ public class RocketScript : MonoBehaviour
        
         Vector3 movementReal = movement * _moveSpeed * Time.deltaTime;
         transform.position = transform.position + movementReal;
+        Debug.Log(movementReal);
 
         // Raycast collision Detection
         RaycastHit2D hit = Physics2D.Raycast(transform.position, p.transform.position - transform.position, 0.01f, _RaycastLayerMask);
@@ -83,6 +90,7 @@ public class RocketScript : MonoBehaviour
 
     public void calculateNewMovement()
     {
+
         Vector3 direction = p.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
@@ -105,6 +113,6 @@ public class RocketScript : MonoBehaviour
         //Vector3 direction2 = p.transform.position - transform.position;
         movement = direction.normalized;
         
-    }
+    } 
 }
 

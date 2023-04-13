@@ -397,7 +397,7 @@ PolygonCollider2D:
       - {x: 0.295, y: -0.295}
 --- !u!95 &9055563339025089632
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -414,7 +414,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &9055563339025089645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,6 +430,8 @@ MonoBehaviour:
   maxHealth: 10
   drop: {fileID: 8367700457022477184, guid: 07aabed6f7c977341b90b6048162b11c, type: 3}
   MalewareEffect: {fileID: 565210136999911036, guid: 064f0169c2c1325448a852137934d113, type: 3}
+  Kills: {fileID: 0}
+  _healtBar: {fileID: 0}
   health: 1
 --- !u!114 &9055563339025089644
 MonoBehaviour:
@@ -513,7 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackSpeed: 1
   rocket: {fileID: 6979645128090173472, guid: c4cb7e651f315484687a829db4cdf2bb, type: 3}
-  AttackRange: 0
+  AttackRange: 3
 --- !u!50 &884611825609484255
 Rigidbody2D:
   serializedVersion: 4

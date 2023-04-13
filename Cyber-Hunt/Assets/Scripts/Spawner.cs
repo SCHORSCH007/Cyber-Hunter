@@ -23,6 +23,12 @@ public class Boss
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Enemy[] _enemies;
+    [SerializeField] private GameObject SpiderBoss;
+    private bool spawnedSpider;
+    [SerializeField] private GameObject DroneBoss;
+    private bool spawnedDrone;
+    [SerializeField] private GameObject BeeBoss;
+    private bool spawnedBee;
     [SerializeField] private int _maxEnemies;
 
     private double accumulateWeights;
@@ -41,9 +47,21 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if(EnemyAmount <= _maxEnemies/10)
+        if(EnemyAmount <= _maxEnemies/10&& !globalVarables.Bossfight)
         {
             Spawn();
+        }
+        if(globalVarables.kills >= 100&&!spawnedSpider)
+        {
+            SpawnSpiderBoss();
+        }
+        if (globalVarables.kills >= 300 && !spawnedDrone)
+        {
+            SpawnDroneBoss();
+        }
+        if (globalVarables.kills >= 500 && !spawnedBee)
+        {
+            SpawnBeeBoss();
         }
     }
 
@@ -96,17 +114,25 @@ public class Spawner : MonoBehaviour
             Debug.Log("Not enough enemys remaining");
         }
     }
-    public void SpawnSpiderBoss(int Health)
+    private void SpawnSpiderBoss()
     {
-
+        Instantiate(SpiderBoss, Vector3.zero, Quaternion.identity, transform);
+        spawnedSpider = true;
+        globalVarables.Bossfight = true;
     }
-    public void SpawnBeeBoss(int Health)
+    private void SpawnBeeBoss()
     {
 
+        Instantiate(BeeBoss, Vector3.zero, Quaternion.identity, transform);
+        spawnedBee = true;
+        globalVarables.Bossfight = true;
     }
-    public void SpawnDroneBoss(int Health)
+    private void SpawnDroneBoss()
     {
 
+        Instantiate(DroneBoss, Vector3.zero, Quaternion.identity, transform);
+        spawnedDrone = true;
+        globalVarables.Bossfight = true;
     }
 
 

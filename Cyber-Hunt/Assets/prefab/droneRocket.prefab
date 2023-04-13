@@ -103,4 +103,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   lifetime: 20
-  delay: 1.5
+  delay: 1
+  InitialDelay: 0
