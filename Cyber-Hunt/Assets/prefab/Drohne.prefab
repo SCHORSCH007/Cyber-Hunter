@@ -428,7 +428,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  drop: {fileID: 8367700457022477184, guid: 07aabed6f7c977341b90b6048162b11c, type: 3}
+  drops:
+  - Name: XP-HighTier
+    prefab: {fileID: 8367700457022477184, guid: 07aabed6f7c977341b90b6048162b11c, type: 3}
+    Chance: 100
+    _weight: 0
+  - Name: EnergyPack
+    prefab: {fileID: 6836674202351518059, guid: bc38b0f919350ab47a65f818379b1055, type: 3}
+    Chance: 15
+    _weight: 0
   MalewareEffect: {fileID: 565210136999911036, guid: 064f0169c2c1325448a852137934d113, type: 3}
   Kills: {fileID: 0}
   _healtBar: {fileID: 0}

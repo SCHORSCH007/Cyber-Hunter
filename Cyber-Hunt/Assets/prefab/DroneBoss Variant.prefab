@@ -603,7 +603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055563339025089639, guid: f8e9ca4942b8a4b4f81dc0e843c68dcf, type: 3}
       propertyPath: m_Name
-      value: DroneBoss
+      value: DroneBoss Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9055563339025089639, guid: f8e9ca4942b8a4b4f81dc0e843c68dcf, type: 3}
       propertyPath: m_TagString
@@ -617,6 +617,10 @@ PrefabInstance:
       propertyPath: _healtBar
       value: 
       objectReference: {fileID: 989224489}
+    - target: {fileID: 9055563339025089645, guid: f8e9ca4942b8a4b4f81dc0e843c68dcf, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e9ca4942b8a4b4f81dc0e843c68dcf, type: 3}
 --- !u!4 &9018660338337969 stripped

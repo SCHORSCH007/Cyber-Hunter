@@ -34,19 +34,19 @@ public class Player : MonoBehaviour
        switch (e.skillType)
         {
 			case PlayerSkills.SkillType.Health1:
-				SetMaxHealth(20);
+				SetMaxHealth(120);
 				break;
 			case PlayerSkills.SkillType.Health2:
-				SetMaxHealth(30);
+				SetMaxHealth(140);
 				break;
 			case PlayerSkills.SkillType.Health3:
-				SetMaxHealth(40);
+				SetMaxHealth(160);
 				break;
 			case PlayerSkills.SkillType.Health4:
-				SetMaxHealth(50);
+				SetMaxHealth(180);
 				break;
 			case PlayerSkills.SkillType.Health5:
-				SetMaxHealth(60);
+				SetMaxHealth(200);
 				break;
 			case PlayerSkills.SkillType.OverallDamage1:
 				AddOverallDamage(1);
@@ -107,9 +107,19 @@ public class Player : MonoBehaviour
 	}
 	public void heal(int heal)
     {
-		currentHealth = currentHealth + heal;
-		healthBar.SetHealth(currentHealth);
-		hp.SetText(currentHealth.ToString());
+		if (currentHealth < globalVarables.playerMaxHealth - heal)
+		{
+			currentHealth = currentHealth + heal;
+			healthBar.SetHealth(currentHealth);
+			hp.SetText(currentHealth.ToString());
+		}
+        else
+        {
+			currentHealth = globalVarables.playerMaxHealth;
+			healthBar.SetHealth(currentHealth);
+			hp.SetText(currentHealth.ToString());
+
+		}
 	}
 
 	private void SetMaxHealth (int maxHealth)

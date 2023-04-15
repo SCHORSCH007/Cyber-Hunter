@@ -614,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 2
   damage: 1
+  lifetime: 3
 --- !u!50 &5388609940999272878
 Rigidbody2D:
   serializedVersion: 4

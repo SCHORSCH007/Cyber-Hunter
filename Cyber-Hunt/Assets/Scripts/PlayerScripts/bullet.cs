@@ -8,12 +8,14 @@ public class bullet : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody2D rb;
     [SerializeField] private float force;
-    [SerializeField] public int damage = 1;
+    [SerializeField] private int damage = 1;
+    [SerializeField] private int lifetime = 0;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("Destroy",lifetime);
         mainCamera = Camera.main;
        
         rb = GetComponent<Rigidbody2D>();
@@ -26,11 +28,11 @@ public class bullet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Destroy()
     {
-   
+        Destroy(gameObject);
     }
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
 

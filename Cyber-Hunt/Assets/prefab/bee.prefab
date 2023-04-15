@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2709256712974664012}
   - component: {fileID: 3383991038694539429}
-  - component: {fileID: 214401637875754677}
   - component: {fileID: 7973980746031291072}
   - component: {fileID: 6584286800549838114}
   - component: {fileID: 7112530097184646972}
@@ -93,22 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &214401637875754677
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488332892394885650}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0006776154, y: -0.027291462}
-  m_Size: {x: 0.15377522, y: 0.15377522}
-  m_Direction: 0
 --- !u!70 &7973980746031291072
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,8 +135,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  drop: {fileID: 1912939744087779704, guid: c3f374b2c8f2d9a4bab6bb8bb2bc36a7, type: 3}
+  drops:
+  - Name: XP-LowTier
+    prefab: {fileID: 1912939744087779704, guid: c3f374b2c8f2d9a4bab6bb8bb2bc36a7, type: 3}
+    Chance: 100
+    _weight: 0
+  - Name: EnergyPack
+    prefab: {fileID: 6836674202351518059, guid: bc38b0f919350ab47a65f818379b1055, type: 3}
+    Chance: 20
+    _weight: 0
   MalewareEffect: {fileID: 565210136999911036, guid: 064f0169c2c1325448a852137934d113, type: 3}
+  Kills: {fileID: 0}
+  _healtBar: {fileID: 0}
+  prefab: {fileID: 1912939744087779704, guid: c3f374b2c8f2d9a4bab6bb8bb2bc36a7, type: 3}
   health: 0
 --- !u!114 &6008721552363440841
 MonoBehaviour:
@@ -171,7 +165,7 @@ MonoBehaviour:
   AttackRange: 3
 --- !u!95 &6226481206055662748
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -188,7 +182,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!50 &7403900015234537310
 Rigidbody2D:
   serializedVersion: 4
