@@ -142,12 +142,11 @@ MonoBehaviour:
     _weight: 0
   - Name: EnergyPack
     prefab: {fileID: 6836674202351518059, guid: bc38b0f919350ab47a65f818379b1055, type: 3}
-    Chance: 20
+    Chance: 7.8
     _weight: 0
   MalewareEffect: {fileID: 565210136999911036, guid: 064f0169c2c1325448a852137934d113, type: 3}
   Kills: {fileID: 0}
   _healtBar: {fileID: 0}
-  prefab: {fileID: 1912939744087779704, guid: c3f374b2c8f2d9a4bab6bb8bb2bc36a7, type: 3}
   health: 0
 --- !u!114 &6008721552363440841
 MonoBehaviour:
