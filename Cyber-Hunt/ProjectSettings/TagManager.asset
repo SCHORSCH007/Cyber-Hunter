@@ -15,6 +15,7 @@ TagManager:
   - Killcount
   - BossDrone
   - HP
+  - ControlScreen
   layers:
   - Default
   - TransparentFX

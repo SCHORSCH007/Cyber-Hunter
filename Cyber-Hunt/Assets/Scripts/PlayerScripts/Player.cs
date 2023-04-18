@@ -124,10 +124,12 @@ public class Player : MonoBehaviour
 
 	private void SetMaxHealth (int maxHealth)
     {
+		healthBar.SetMaxHealth(maxHealth);
 		int cur = globalVarables.playerMaxHealth;
 		globalVarables.playerMaxHealth = maxHealth;
 		heal(maxHealth - cur);
-		healthBar.SetMaxHealth(currentHealth);
+		
+		
 
 	}
 

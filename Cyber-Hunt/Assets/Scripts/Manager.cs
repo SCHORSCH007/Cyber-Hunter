@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -128,6 +129,20 @@ public class Manager : MonoBehaviour
     public void MalewareEnabled()
     {
         MalewareEmitter.SetActive(true);
+    }
+
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+        SceneManager.UnloadScene(1);
+
+    }
+
+    public void Reload()
+    {
+        SceneManager.LoadScene(1);   
+
     }
 }
    
