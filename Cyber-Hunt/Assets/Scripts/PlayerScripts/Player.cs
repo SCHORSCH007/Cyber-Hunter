@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private HealthBar healthBar;
 	[SerializeField] private Rigidbody2D rb;
 	[SerializeField] private TextMeshProUGUI hp;
+	[SerializeField] private AudioSource Music;
 	private GameObject DeathScreen;
 	private GameObject LevelUpMenu;
 	private int currentHealth;
@@ -102,6 +103,7 @@ public class Player : MonoBehaviour
 		if (currentHealth<= 0)
 		{
 			DeathScreen.SetActive(true);
+			Music.Stop();
 			Time.timeScale = 0;
 		}
 	}

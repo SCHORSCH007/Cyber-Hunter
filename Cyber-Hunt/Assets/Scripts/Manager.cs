@@ -20,7 +20,9 @@ public class Manager : MonoBehaviour
 
     [SerializeField] private ActivateWings Wings;
 
-  
+    [SerializeField] private AudioSource Music;
+
+
 
     private SpriteRenderer sp1;
     private SpriteRenderer sp2;
@@ -46,6 +48,7 @@ public class Manager : MonoBehaviour
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Music.Play();
         Time.timeScale = 1f;
     }
     public void Resume()
