@@ -5,7 +5,7 @@ using System;
 public class PlayerSkills
 {
     public event EventHandler<OnSkillUnlockedEventArgs> OnSkillUnlocked;
-    private LevelSystem levelSystem;
+    
 
     
     public class OnSkillUnlockedEventArgs : EventArgs
@@ -42,6 +42,10 @@ public class PlayerSkills
         OverallDamage4,
         OverallDamage5,
         OverallDamage6,
+
+        MovementSpeed1,
+        MovementSpeed2,
+        MovementSpeed3,
 
 
     }
@@ -120,6 +124,9 @@ public class PlayerSkills
             case SkillType.OverallDamage5: return SkillType.OverallDamage4;
             case SkillType.OverallDamage6: return SkillType.OverallDamage5;
 
+            case SkillType.MovementSpeed2: return SkillType.MovementSpeed1;
+            case SkillType.MovementSpeed3: return SkillType.MovementSpeed2;
+
             default: return SkillType.None;
         }
     }
@@ -149,6 +156,10 @@ public class PlayerSkills
             case SkillType.OverallDamage5: return 5;
             case SkillType.OverallDamage6: return 6;
 
+            case SkillType.MovementSpeed1: return 2;
+            case SkillType.MovementSpeed2: return 4;
+            case SkillType.MovementSpeed3: return 2;
+
             case SkillType.Shield: return 3;
 
             case SkillType.Maleware: return 3;
@@ -160,7 +171,7 @@ public class PlayerSkills
     {
         SkillType skillRequirement = GetSkillRequirement(skillType);
 
-        if (CanUnlock(skillType)&&GetSkillCost(skillType) <= globalVarables.SkillPoints) {
+        if (CanUnlock(skillType)&&GetSkillCost(skillType) <= globalVarables.SkillPoints && !IsSkillUnlocked(skillType)) {
             UnlockSkill(skillType);
             globalVarables.SkillPoints -= GetSkillCost(skillType);
             return true;

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 	private GameObject LevelUpMenu;
 	private int currentHealth;
 	private PlayerSkills playerSkills;
+	private PlayerMovement movement;
 
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
 		currentHealth = globalVarables.playerMaxHealth;
 		playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
 		globalVarables.Player = gameObject;
+		movement = GetComponentInParent<PlayerMovement>();
 	}
 
 	private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
@@ -66,6 +68,15 @@ public class Player : MonoBehaviour
 				break;
 			case PlayerSkills.SkillType.OverallDamage6:
 				AddOverallDamage(1);
+				break;
+			case PlayerSkills.SkillType.MovementSpeed1:
+				movement.MoveSpeed = movement.MoveSpeed * 1.1f;
+				break;
+			case PlayerSkills.SkillType.MovementSpeed2:
+				movement.MoveSpeed = movement.MoveSpeed * 1.1f;
+				break;
+			case PlayerSkills.SkillType.MovementSpeed3:
+				movement.MoveSpeed = movement.MoveSpeed * 1.1f;
 				break;
 
 		}

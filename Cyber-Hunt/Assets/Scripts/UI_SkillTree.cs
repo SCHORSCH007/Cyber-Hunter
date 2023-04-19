@@ -15,6 +15,8 @@ public class UI_SkillTree : MonoBehaviour
     [SerializeField] private Material unlocked;
     [SerializeField] private Material normal;
     [SerializeField] private Button_UI[] _SkillObjects;
+    [SerializeField] private GameObject[] HealthUpgradesOptical;
+    [SerializeField] private GameObject[] SpeedUpgradesOptical;
     private void Awake()
     {
 
@@ -65,26 +67,46 @@ public class UI_SkillTree : MonoBehaviour
 
         _SkillObjects[4].GetComponent<Button_UI>().ClickFunc = () =>
         {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.Health1))
+            {
+                HealthUpgradesOptical[0].SetActive(true);
+            }
             playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Health1);
             UpdateVisuals();
         };
         _SkillObjects[5].GetComponent<Button_UI>().ClickFunc = () =>
         {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.Health2))
+            {
+                HealthUpgradesOptical[1].SetActive(true);
+            }
             playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Health2);
             UpdateVisuals();
         };
         _SkillObjects[6].GetComponent<Button_UI>().ClickFunc = () =>
         {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.Health3))
+            {
+                HealthUpgradesOptical[2].SetActive(true);
+            }
             playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Health3);
             UpdateVisuals();
         };
         _SkillObjects[7].GetComponent<Button_UI>().ClickFunc = () =>
         {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.Health4))
+            {
+                HealthUpgradesOptical[3].SetActive(true);
+            }
             playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Health4);
             UpdateVisuals();
         };
         _SkillObjects[8].GetComponent<Button_UI>().ClickFunc = () =>
         {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.Health5))
+            {
+                HealthUpgradesOptical[4].SetActive(true);
+            }
             playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Health5);
             UpdateVisuals();
         };
@@ -150,6 +172,45 @@ public class UI_SkillTree : MonoBehaviour
             
             UpdateVisuals();
         };
+
+        //Speed
+        _SkillObjects[17].GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.MovementSpeed1))
+            {
+                //Main Fire MK2
+                SpeedUpgradesOptical[0].SetActive(true);
+                //Main Fire MK1
+                SpeedUpgradesOptical[4].SetActive(false);
+
+            }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.MovementSpeed1);
+            UpdateVisuals();
+        };
+        _SkillObjects[18].GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.MovementSpeed2))
+            {
+                //secondary Engine
+                SpeedUpgradesOptical[1].SetActive(true);
+                //secondary Engine fire
+                SpeedUpgradesOptical[2].SetActive(true);
+            }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.MovementSpeed2);
+            UpdateVisuals();
+        };
+        _SkillObjects[19].GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.MovementSpeed3))
+            {
+                //Secondary Fire MK2
+                SpeedUpgradesOptical[3].SetActive(true);
+                //Secondary Fire MK1
+                SpeedUpgradesOptical[2].SetActive(false);
+            }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.MovementSpeed3);
+            UpdateVisuals();
+        };
     }
 
 
@@ -173,6 +234,9 @@ public class UI_SkillTree : MonoBehaviour
         skillButtonList.Add(new SkillButton(_SkillObjects[14], playerSkills, PlayerSkills.SkillType.OverallDamage6, locked, unlocked, normal, _SkillObjects[14].GetComponent<Image>()));
         skillButtonList.Add(new SkillButton(_SkillObjects[15], playerSkills, PlayerSkills.SkillType.Shield, locked, unlocked, normal, _SkillObjects[15].GetComponent<Image>()));
         skillButtonList.Add(new SkillButton(_SkillObjects[16], playerSkills, PlayerSkills.SkillType.Maleware, locked, unlocked, normal, _SkillObjects[16].GetComponent<Image>()));
+        skillButtonList.Add(new SkillButton(_SkillObjects[17], playerSkills, PlayerSkills.SkillType.MovementSpeed1, locked, unlocked, normal, _SkillObjects[17].GetComponent<Image>()));
+        skillButtonList.Add(new SkillButton(_SkillObjects[18], playerSkills, PlayerSkills.SkillType.MovementSpeed2, locked, unlocked, normal, _SkillObjects[18].GetComponent<Image>()));
+        skillButtonList.Add(new SkillButton(_SkillObjects[19], playerSkills, PlayerSkills.SkillType.MovementSpeed3, locked, unlocked, normal, _SkillObjects[19].GetComponent<Image>()));
         this.playerSkills = playerSkills;
         UpdateVisuals(); 
     }

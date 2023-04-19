@@ -39,16 +39,43 @@ public class PlayerMovement : MonoBehaviour
         //input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        
-        if (movement.x < 0)
+
+        if (movement.x < 0 && movement.y < 0)
         {
-            isFacingRight = false;
-            
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 135);
         }
-        else if (movement.x > 0)
+        else if (movement.x > 0 && movement.y > 0)
         {
-            isFacingRight = true;
-            
+            gameObject.transform.eulerAngles = new Vector3(0, 0, -45);
+        }
+        else if (movement.x < 0 && movement.y > 0)
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 45);
+        }
+        else if (movement.x > 0 && movement.y < 0)
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, -135);
+        }
+
+        else {
+            if (movement.x < 0)
+            {
+                gameObject.transform.eulerAngles = new Vector3(0, 0, 90);
+
+            }
+            if (movement.y < 0)
+            {
+                gameObject.transform.eulerAngles = new Vector3(0, 0, 180);
+            }
+            if (movement.x > 0)
+            {
+                isFacingRight = true;
+                gameObject.transform.eulerAngles = new Vector3(0, 0, -90);
+            }
+            if (movement.y  > 0)
+            {
+                gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+            }
         }
         
     }
@@ -62,12 +89,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (isFacingRight && !alreadyFacingRight)
         {
-            sp.sprite = p_r;
+           
             alreadyFacingRight = true;
         }
         else if (!isFacingRight && alreadyFacingRight)
         {
-            sp.sprite = p_l;
+            
             alreadyFacingRight = false;
             
         }
