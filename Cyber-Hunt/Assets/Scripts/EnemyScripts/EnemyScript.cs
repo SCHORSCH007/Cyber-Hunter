@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     private Vector2 movement;
     private Transform player;
     private bool paused;
+    public bool Dash = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,10 @@ public class EnemyScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        moveCharacter(movement);
+        if (!Dash)
+        {
+            moveCharacter(movement);
+        }
     }
     void moveCharacter(Vector2 direction)
     {

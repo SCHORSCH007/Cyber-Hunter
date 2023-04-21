@@ -16,6 +16,7 @@ TagManager:
   - BossDrone
   - HP
   - ControlScreen
+  - col
   layers:
   - Default
   - TransparentFX
