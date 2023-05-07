@@ -37,11 +37,16 @@ public class bullet : MonoBehaviour
     {
 
         EnemyHpScript enemy = hitInfo.GetComponent<EnemyHpScript>();
+        EnemyShield s = hitInfo.GetComponent<EnemyShield>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage * globalVarables.increasingDamage);
             DamagePopUpScript.Create(enemy.transform.position, damage*globalVarables.increasingDamage, false,new Color(26f/255f,170f/255f,207f/255f));
             Destroy(gameObject);
         }    
+        if(s!= null)
+        {
+            Destroy();
+        }
     }
 }

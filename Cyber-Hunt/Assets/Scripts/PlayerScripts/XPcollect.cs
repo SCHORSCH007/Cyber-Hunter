@@ -12,6 +12,7 @@ public class XPcollect : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
+        Destroy(this, 60f);
 
     }
     public void FixedUpdate()

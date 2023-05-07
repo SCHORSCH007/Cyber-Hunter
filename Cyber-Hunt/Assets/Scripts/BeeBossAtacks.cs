@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BeeBossAtacks : MonoBehaviour
 {
+    [SerializeField] private GameObject Shield;
     [SerializeField] private GameObject Clones;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("ActivateClones", 3f);
+        InvokeRepeating("ActivateClones", 3f,12f);
     }
 
     // Update is called once per frame
@@ -22,6 +23,8 @@ public class BeeBossAtacks : MonoBehaviour
         if (!Clones.activeInHierarchy)
         {
             Clones.SetActive(true);
+            Shield.SetActive(true);
+            gameObject.GetComponent<EnemyHpScript>().Invincible = true;
         }
     }
 }

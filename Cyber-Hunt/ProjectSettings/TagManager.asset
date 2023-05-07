@@ -17,6 +17,9 @@ TagManager:
   - HP
   - ControlScreen
   - col
+  - Clone
+  - Boss
+  - Laser
   layers:
   - Default
   - TransparentFX

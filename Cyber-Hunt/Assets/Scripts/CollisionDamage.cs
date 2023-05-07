@@ -10,12 +10,13 @@ public class CollisionDamage : MonoBehaviour
 		{
 			EnemyHpScript ES = collision.gameObject.GetComponent<EnemyHpScript>();
 			Player p = GameObject.FindWithTag("Player").GetComponent<Player>();
-			if (ES != null)
+			if (ES != null && collision.gameObject.tag != "Boss")
 
 			{
 				p.TakeDamage(ES.health);
 				ES.TakeDamage(ES.GetMaxHealth()/2);
 			}
+			
 
 		}
 	}

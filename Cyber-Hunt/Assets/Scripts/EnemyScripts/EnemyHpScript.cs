@@ -25,6 +25,7 @@ public class EnemyHpScript : MonoBehaviour
 
 
     public int health;
+    public bool Invincible = false;
     private bool Maleware;
     private Spawner spawn;
 
@@ -41,22 +42,25 @@ public class EnemyHpScript : MonoBehaviour
     }
     public void TakeDamage(int Damage)
     {
-        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(100, 0, 151);
-        StartCoroutine(colorFeedback());
-        health -= Damage;
-        if (_healtBar != null)
+        if (!Invincible)
         {
-            _healtBar.SetHealth(health);
-        }
-        if (health <= 0)
-        {
-            DropItems();
-            
-            spawn.ReduceEnemys(1);
-            globalVarables.kills++;
-            Kills.SetText(globalVarables.kills.ToString());
-            Destroy(gameObject);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(100, 0, 151);
+            StartCoroutine(colorFeedback());
+            health -= Damage;
+            if (_healtBar != null)
+            {
+                _healtBar.SetHealth(health);
+            }
+            if (health <= 0)
+            {
+                DropItems();
 
+                spawn.ReduceEnemys(1);
+                globalVarables.kills++;
+                Kills.SetText(globalVarables.kills.ToString());
+                Destroy(gameObject);
+
+            }
         }
     }
     IEnumerator colorFeedback()
@@ -73,24 +77,27 @@ public class EnemyHpScript : MonoBehaviour
     }
     IEnumerator MalewareLoop(int Damage, float Duration)
     {
-        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(57f / 255f, 200f / 255f, 66f / 255f);
-        Instantiate(MalewareEffect, gameObject.transform);
-
-        EffectLifetime Lifetime = GetComponentInChildren<EffectLifetime>();
-        Lifetime.EndInSeconds(Duration);
-        int _damage = Damage;
-        float timeLeft = Duration;
-
-        while (timeLeft > 0.0f)
+        if (!Invincible)
         {
-            TakeDamage(1);
-            DamagePopUpScript.Create(transform.position, 1, false, new Color(57f / 255f, 200f / 255f, 66f / 255f));
-            timeLeft -= Time.deltaTime;
-            yield return new WaitForSeconds(Duration / Damage);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(57f / 255f, 200f / 255f, 66f / 255f);
+            Instantiate(MalewareEffect, gameObject.transform);
+
+            EffectLifetime Lifetime = GetComponentInChildren<EffectLifetime>();
+            Lifetime.EndInSeconds(Duration);
+            int _damage = Damage;
+            float timeLeft = Duration;
+
+            while (timeLeft > 0.0f)
+            {
+                TakeDamage(1);
+                DamagePopUpScript.Create(transform.position, 1, false, new Color(57f / 255f, 200f / 255f, 66f / 255f));
+                timeLeft -= Time.deltaTime;
+                yield return new WaitForSeconds(Duration / Damage);
+            }
+            Maleware = false;
+            yield return null;
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
         }
-        Maleware = false;
-        yield return null;
-        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
     public int GetMaxHealth()
     {
