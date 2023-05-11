@@ -8,7 +8,11 @@ public class CloneManager : MonoBehaviour
     [SerializeField] private GameObject [] Laser;
     [SerializeField] private GameObject Shield;
     [SerializeField] private EnemyHpScript hp;
-    private float ActiveTime = 4f;
+    [SerializeField] private BeeBossAtacks Bee;
+    [SerializeField] private GameObject[] Clones;
+    private int loopVariable = 4;
+    private float ActiveTime = 8f;
+    private bool rage = false;
     
 
     // Update is called once per frame
@@ -18,13 +22,33 @@ public class CloneManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        Invoke("ActivateLasers", 2f);
+        if (!Bee.isEnraged())
+        {
+            Invoke("ActivateLasers", 2f);
+        }
+        else
+        {
+            if (rage)
+            {
+                Invoke("ActivateLasers", 2f);
+            }
+            else
+            {
+                rage = true;
+                
+                loopVariable = 6;
+                Clones[4].SetActive(true);
+                Clones[5].SetActive(true);
+                gameObject.GetComponent<BladeRotator>().setRotation(new Vector3(0, 0, -70));
+                Invoke("ActivateLasers", 2f);
+            }
+        }
     }
 
     private void ActivateLasers()
     {
         
-        for(int i = 0; i < Laser.Length; i++)
+        for(int i = 0; i < loopVariable; i++)
         {
             Laser[i].SetActive(true);
         }
@@ -33,18 +57,18 @@ public class CloneManager : MonoBehaviour
 
     private void DeactivateLasers()
     {
-        for (int i = 0; i < Laser.Length; i++)
+        for (int i = 0; i < loopVariable; i++)
         {
             Laser[i].GetComponent<Animator>().SetBool("Enabled", false);
         }
-        Invoke("DisableClones", 4f);
+        Invoke("DisableClones", 3f);
     }
 
     private void DisableClones()
     {
-        GameObject[] Clones = GameObject.FindGameObjectsWithTag("Clone");
+        
 
-        for(int i = 0; i< Clones.Length; i++)
+        for(int i = 0; i< loopVariable; i++)
         {
             Clones[i].GetComponent<AlignToPosition>().returnToOrigin();
             
@@ -58,6 +82,7 @@ public class CloneManager : MonoBehaviour
         hp.Invincible = false;
         gameObject.SetActive(false);
     }
+   
 
  }
 

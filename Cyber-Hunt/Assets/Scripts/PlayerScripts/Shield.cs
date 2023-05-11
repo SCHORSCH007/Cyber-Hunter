@@ -73,4 +73,9 @@ public class Shield : MonoBehaviour
     {
         hP = maxHP;
     }
+    public void addToMaxHp(int amount)
+    {
+        maxHP = amount;
+        hP += amount;
+    }
 }

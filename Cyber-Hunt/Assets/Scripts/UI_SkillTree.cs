@@ -156,7 +156,28 @@ public class UI_SkillTree : MonoBehaviour
             playerSkills.TryUnlockSkill(PlayerSkills.SkillType.Shield);
             UpdateVisuals();
         };
+        _SkillObjects[20].GetComponent<Button_UI>().ClickFunc = () =>
+        {
 
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.ShieldHealth1) && !playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.ShieldHealth1))
+            {
+
+                m.ShieldHealthInc(10);
+            }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.ShieldHealth1);
+            UpdateVisuals();
+        };
+        _SkillObjects[21].GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            
+            if (playerSkills.CanUnlock(PlayerSkills.SkillType.ShieldHealth2) && !playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.ShieldHealth2))
+            {
+
+                m.ShieldHealthInc(10);
+            }
+            playerSkills.TryUnlockSkill(PlayerSkills.SkillType.ShieldHealth2);
+            UpdateVisuals();
+        };
         //Maleware
 
         _SkillObjects[16].GetComponent<Button_UI>().ClickFunc = () =>
@@ -237,6 +258,9 @@ public class UI_SkillTree : MonoBehaviour
         skillButtonList.Add(new SkillButton(_SkillObjects[17], playerSkills, PlayerSkills.SkillType.MovementSpeed1, locked, unlocked, normal, _SkillObjects[17].GetComponent<Image>()));
         skillButtonList.Add(new SkillButton(_SkillObjects[18], playerSkills, PlayerSkills.SkillType.MovementSpeed2, locked, unlocked, normal, _SkillObjects[18].GetComponent<Image>()));
         skillButtonList.Add(new SkillButton(_SkillObjects[19], playerSkills, PlayerSkills.SkillType.MovementSpeed3, locked, unlocked, normal, _SkillObjects[19].GetComponent<Image>()));
+        skillButtonList.Add(new SkillButton(_SkillObjects[20], playerSkills, PlayerSkills.SkillType.ShieldHealth1, locked, unlocked, normal, _SkillObjects[20].GetComponent<Image>()));
+        skillButtonList.Add(new SkillButton(_SkillObjects[21], playerSkills, PlayerSkills.SkillType.ShieldHealth2, locked, unlocked, normal, _SkillObjects[21].GetComponent<Image>()));
+
         this.playerSkills = playerSkills;
         UpdateVisuals(); 
     }

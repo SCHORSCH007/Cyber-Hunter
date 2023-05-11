@@ -11,6 +11,7 @@ public class BeeScript : MonoBehaviour
     private CircleCollider2D collPlayer;
     [HideInInspector] public bool inRange;
     private Transform player;
+    [SerializeField] private bool boss = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class BeeScript : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if (!inRange)
+        if (!inRange||boss)
         { moveCharacter(movement); }
     }
     void moveCharacter(Vector2 direction)

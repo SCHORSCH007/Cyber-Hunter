@@ -143,4 +143,9 @@ public class SpiderBossAttacks : MonoBehaviour
         yield return new WaitForSeconds(sec);
         HitPlayer = false;
     }
+
+    private void OnDestroy()
+    {
+        globalVarables.Bossfight = false;
+    }
 }

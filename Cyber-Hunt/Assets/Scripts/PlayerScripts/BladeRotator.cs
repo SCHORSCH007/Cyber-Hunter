@@ -11,5 +11,10 @@ public class BladeRotator : MonoBehaviour
         transform.Rotate(_rotation * Time.deltaTime);
     }
 
+    public void setRotation(Vector3 rotaton)
+    {
+        _rotation = rotaton;
+    }
+
 
 }

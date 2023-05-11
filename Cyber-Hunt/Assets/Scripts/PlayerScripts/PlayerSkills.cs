@@ -27,6 +27,8 @@ public class PlayerSkills
         CyberBladeDamage4,
 
         Shield,
+        ShieldHealth1,
+        ShieldHealth2,
 
         Maleware,
 
@@ -127,6 +129,9 @@ public class PlayerSkills
             case SkillType.MovementSpeed2: return SkillType.MovementSpeed1;
             case SkillType.MovementSpeed3: return SkillType.MovementSpeed2;
 
+            case SkillType.ShieldHealth1: return SkillType.Shield;
+            case SkillType.ShieldHealth2: return SkillType.ShieldHealth1;
+
             default: return SkillType.None;
         }
     }
@@ -161,6 +166,8 @@ public class PlayerSkills
             case SkillType.MovementSpeed3: return 2;
 
             case SkillType.Shield: return 3;
+            case SkillType.ShieldHealth1: return 5;
+            case SkillType.ShieldHealth2: return 7;
 
             case SkillType.Maleware: return 3;
 

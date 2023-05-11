@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+
 
 public class Manager : MonoBehaviour
 {
@@ -22,6 +22,8 @@ public class Manager : MonoBehaviour
 
     [SerializeField] private AudioSource Music;
 
+    [SerializeField] Shield s;
+
 
 
     private SpriteRenderer sp1;
@@ -29,8 +31,10 @@ public class Manager : MonoBehaviour
     private SpriteRenderer sp3;
     private SpriteRenderer sp4;
 
+   
 
-    // Start is called before the first frame update
+
+    
     void Start()
     {
         sp1 = blade1.GetComponent<SpriteRenderer>();
@@ -40,11 +44,8 @@ public class Manager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
+  
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -118,6 +119,12 @@ public class Manager : MonoBehaviour
     {
         Shield.SetActive(true);
     }
+
+    public void ShieldHealthInc(int amount)
+    {
+        s.addToMaxHp(amount);
+    }
+
     public void BeginnShieldReset(int ResetTime)
     {
         StartCoroutine(ShieldReset(ResetTime));
@@ -138,7 +145,7 @@ public class Manager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
-        SceneManager.UnloadScene(1);
+        SceneManager.UnloadSceneAsync(1);
 
     }
 
@@ -147,5 +154,8 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene(1);   
 
     }
+
+   
+  
 }
    
