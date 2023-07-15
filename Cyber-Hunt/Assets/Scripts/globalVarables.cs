@@ -20,5 +20,6 @@ public class globalVarables : MonoBehaviour
 
     public static float cooldownDash;
     public static float strengthDash;
+    public static bool Victory = false;
 
 }

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private AudioSource Music;
 	private GameObject DeathScreen;
 	private GameObject LevelUpMenu;
+	private GameObject VictoryScreen;
 	private int currentHealth;
 	private PlayerSkills playerSkills;
 	private PlayerMovement movement;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
 		playerSkills = new PlayerSkills();
 		DeathScreen = GameObject.FindWithTag("DeathMenu");
 		LevelUpMenu = GameObject.FindWithTag("LevelUpMenu");
+		VictoryScreen = GameObject.FindWithTag("Victory");
 		currentHealth = globalVarables.playerMaxHealth;
 		playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
 		globalVarables.Player = gameObject;
@@ -87,6 +89,7 @@ public class Player : MonoBehaviour
 		healthBar.SetMaxHealth(globalVarables.playerMaxHealth);
 		DeathScreen.SetActive(false);
 		LevelUpMenu.SetActive(false);
+		VictoryScreen.SetActive(false);
 		hp.SetText(currentHealth.ToString());
 	}
  
@@ -103,6 +106,12 @@ public class Player : MonoBehaviour
 		{
 			
 		}
+        if (globalVarables.Victory)
+        {
+			VictoryScreen.SetActive(true);
+			Music.Stop();
+			Time.timeScale = 0f;
+        }
 	}
 
 	public void TakeDamage(int damage)

@@ -20,6 +20,7 @@ TagManager:
   - Clone
   - Boss
   - Laser
+  - Victory
   layers:
   - Default
   - TransparentFX

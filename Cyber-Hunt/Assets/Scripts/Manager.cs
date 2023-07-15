@@ -154,6 +154,12 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene(1);   
 
     }
+    public void EndlessMode()
+    {
+        Time.timeScale = 1f;
+        GameObject.FindGameObjectWithTag("Victory").SetActive(false);
+        Music.Play();
+    }
 
    
   
